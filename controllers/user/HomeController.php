@@ -14,7 +14,8 @@ class HomeController{
     }
     public function giohang()
     {
-        view("client/giohang");
+        view("client/cart");
     }
+    
 }
 ?>

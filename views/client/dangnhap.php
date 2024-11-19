@@ -1,5 +1,5 @@
 <?php include_once "views/client/header.php" ?>
-<div id="container1">
+<div id="main">
         <div id="main">
             <div class="border">
                 <form class="login">

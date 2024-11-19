@@ -20,39 +20,15 @@
         <div class="header-top">ĐỔI HÀNG MIỄN PHÍ - TẠI TẤT CẢ CỬA HÀNG TRONG VÒNG 30 NGÀY</div>
         <div class="menu">
             <div class="left">
-                <img src="images/logo.svg" alt="" width="70px">
+                <a href="index.php">
+                    <img src="images/logo.svg" alt="" width="70px">
+                </a>
                 <ul class="menu-button">
-                    <li><a href="#">Sản phẩm mới</a></li>
-                    <li class="menu-item">
-                        <a href="#">Nữ</a>
-                        <!-- <ul class="submenu">
-                <div class="sub-left">
-                  <h6>Danh mục sản phẩm</h6>
-                <li><a href="#">Áo phông/ Áo thun</a></li>
-                <li><a href="#">Áo nỉ & Áo Hoodie</a></li>
-                <li><a href="#">Áo khoác</a></li>
-                <li><a href="#">Áo/ Quần giữ nhiệt</a></li>
-                <li><a href="#">Áo len</a></li>
-                <li><a href="#">Quần nỉ</a></li>
-                <li><a href="#">Quần áo mặc nhà/ Đồ ngủ</a></li>
-                <li><a href="#">Bộ nỉ/ Bộ quần áo</a></li>
-                <li><a href="#">Quần dài/ Quần Jean</a></li>
-                </div>
-                <div class="center">
-                  <li><a href="#">Váy</a></li>
-                <li><a href="#">Quần áo thể thao</a></li>
-                <li><a href="#">Áo polo</a></li>
-                <li><a href="#">Áo sơ mi/ Áo kiểu</a></li>
-                <li><a href="#">Áo chống nắng</a></li>
-                <li><a href="#">Quần short</a></li>
-                <li><a href="#">Đồ lót</a></li>
-                <li><a href="#">Tất/ vớ</a></li>
-                </div>
-              </ul> -->
-                    </li>
-                    <li><a href="#">Nam</a></li>
-                    <li><a href="#">Bé gái</a></li>
-                    <li><a href="#">Bé trai</a></li>
+                    <li><a href="index.php?ctl=newproduct-nu">Sản phẩm mới</a></li>
+                    <li><a href="index.php?ctl=nu">Nữ</a></li>
+                    <li><a href="index.php?ctl=nam">Nam</a></li>
+                    <li><a href="index.php?ctl=girl">Bé gái</a></li>
+                    <li><a href="index.php?ctl=boy">Bé trai</a></li>
                 </ul>
             </div>
             <div class="right">
@@ -74,11 +50,13 @@
                     </a>
                 </div>
                 <div class="icon" style="margin-bottom: 2px;">
-                    <a href="index.php?ctl=giohang">
+                    <a href="index.php?ctl=cart">
                         <img src="images/shop.jpg" alt="" width="25px">
                         <p>Giỏ hàng</p>
                     </a>
                 </div>
             </div>
+
         </div>
+
     </div>

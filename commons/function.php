@@ -3,6 +3,7 @@
         try{
             $conn = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME . ";port=" . PORT . ";charset=utf8", USERNAME, PASSWORD);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
         }catch(PDOException $e){
             echo "Lỗi kết nối CSDL:" . $e->getMessage();
         }

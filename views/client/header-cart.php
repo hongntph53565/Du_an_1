@@ -15,17 +15,19 @@
 
 <body>
 
-    <div id="header">
+    <div id="header1">
         <div class="header-top">ĐỔI HÀNG MIỄN PHÍ - TẠI TẤT CẢ CỬA HÀNG TRONG VÒNG 30 NGÀY</div>
         <div class="menu">
             <div class="left">
-                <img src="images/logo.svg" alt="" width="70px">
+                <a href="index.php">
+                    <img src="images/logo.svg" alt="" width="70px">
+                </a>
                 <ul class="menu-button">
-                    <li><a href="#">Sản phẩm mới</a></li>
-                    <li class="menu-item"><a href="#">Nữ</a></li>
-                    <li><a href="#">Nam</a></li>
-                    <li><a href="#">Bé gái</a></li>
-                    <li><a href="#">Bé trai</a></li>
+                    <li><a href="index.php?ctl=newproduct-nu">Sản phẩm mới</a></li>
+                    <li><a href="index.php?ctl=nu">Nữ</a></li>
+                    <li><a href="index.php?ctl=nam">Nam</a></li>
+                    <li><a href="index.php?ctl=girl">Bé gái</a></li>
+                    <li><a href="index.php?ctl=boy">Bé trai</a></li>
                 </ul>
             </div>
             <div class="right">
@@ -42,19 +44,16 @@
                 </div>
                 <div class="icon">
                     <a href="index.php?ctl=dangnhap">
-                        <img src="images/taikhoan.jpg" alt="" width="20px" style="color: red;">
+                        <img src="images/taikhoan.jpg" alt="" width="20px">
                         <p>Tài khoản</p>
                     </a>
                 </div>
                 <div class="icon" style="margin-bottom: 2px;">
-                    <a href="index.php?ctl=giohang">
+                    <a href="index.php?ctl=cart">
                         <img src="images/shop.jpg" alt="" width="25px">
                         <p>Giỏ hàng</p>
                     </a>
                 </div>
             </div>
         </div>
-        <hr>
-        <h5>Giỏ hàng(21+)</h5>
-        <hr>
     </div>
