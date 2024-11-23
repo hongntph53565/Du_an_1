@@ -1,14 +1,14 @@
 <?php include_once "views/client/header.php" ?>
 <div id="category">
-        <div class="sidebar">
+        <!-- <div class="sidebar">
             <ul>
                 <li><a href="#">Danh mục sản phẩm</a></li>
                 <li><a href="#">Hàng mới</a></li>
                 <li><a href="#">Nổi bật</a></li>
                 <li><a href="#">Phụ kiện</a></li>
             </ul>
-        </div>
-        <!-- <div class="sidebar" id="accordionFlushExample">
+        </div> -->
+        <div class="sidebar" id="accordionFlushExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="main">
 

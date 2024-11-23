@@ -24,7 +24,7 @@
                     <img src="images/logo.svg" alt="" width="70px">
                 </a>
                 <ul class="menu-button">
-                    <li><a href="index.php?ctl=newproduct-nu">Sản phẩm mới</a></li>
+                    <li><a href="index.php?ctl=newproduct">Sản phẩm mới</a></li>
                     <li><a href="index.php?ctl=nu">Nữ</a></li>
                     <li><a href="index.php?ctl=nam">Nam</a></li>
                     <li><a href="index.php?ctl=girl">Bé gái</a></li>

@@ -1,16 +1,17 @@
 <?php
 
-
+require_once __DIR__ . "/env.php";
 //commons
 require_once "commons/env.php";
 require_once "commons/function.php";
 //models
 require_once "models/DanhMuc.php";
+require_once "models/TaiKhoan.php";
 //controller
 require_once "controllers/user/HomeController.php";
+require_once "controllers/user/UserCategoryController.php";
 require_once "controllers/admin/AdminController.php";
-require_once "controllers/admin/CategoryControler.php";
-
+require_once "controllers/admin/CategoryController.php";
 
 
 $ctl = $_GET['ctl'] ?? "";
@@ -30,6 +31,8 @@ match ($ctl) {
     'delete-categories' => (new CategoryController)->delete(),
     'edit-categories' => (new CategoryController)->edit(),
 
+    'myacc' => (new HomeController)->myacc(),
+
     'add-account' => (new AdminController)->addacc(),
     'list-account' => (new AdminController)->listacc(),
 
@@ -39,5 +42,11 @@ match ($ctl) {
     'dangky' => (new HomeController)->dangky(),
     'dangnhap' => (new HomeController)->dangnhap(),
     'cart' => (new HomeController)->giohang(),
+    'newproduct' => (new UserCategoryController)->newproduct(),
+    'newproduct-nu' => (new UserCategoryController)->list(),
+    'nu' => (new HomeController)->categorynu(),
+    'nam' => (new HomeController)->categorynam(),
+    'boy' => (new HomeController)->categoryboy(),
+    'girl' => (new HomeController)->categorygirl(),
     default => "Không tìm thấy file"
 };
