@@ -40,6 +40,10 @@
             <input type="number" name="so_luong" placeholder="Nhập Số Lượng " required>
           </div>
           <div class="content mb">
+            <label>Sale Prce</label> <br>
+            <input type="number" name="gia_giam" placeholder="Nhập đơn giá" required>
+          </div>
+          <div class="content mb">
             <label>Số lượt xem</label> <br>
             <input type="number" name="so_luot_xem" value="0" disabled placeholder="0">
           </div>

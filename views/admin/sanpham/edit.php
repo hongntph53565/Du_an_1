@@ -6,7 +6,7 @@
   </div>
 
   <div class="content form_content">
-    <form action="index.php?ctl=update-product&ma_sp=<?= $product['ma_sp']; ?>" method="POST" enctype="multipart/form-data">
+    <form action="index.php?ctl=edit-product&ma_sp=<?= $product['ma_sp']; ?>" method="POST" enctype="multipart/form-data">
       <div class="ngang">
         <div class="danhang mr5">
           <div style="color: red;">
@@ -44,6 +44,10 @@
             <label>Số lượng</label> <br>
             <input type="number" name="so_luong" value="<?= $product['so_luong']; ?>" required>
           </div>
+          <div class="content mb">
+            <label> Sale Price</label> <br>
+            <input type="number" name="gia_giam" value="<?= $product['gia_giam']; ?>" required>
+          </div>
         </div>
       </div>
 
@@ -52,6 +56,7 @@
         <textarea name="mo_ta" required><?= $product['mo_ta']; ?></textarea>
       </div>
 
+      <input type="hidden" name="ma_sp" value="<?= $product['ma_sp']?>">
       <div class="content mb">
         <input type="submit" value="Cập nhật">
         <a href="index.php?ctl=list-product"><input type="button" value="Danh sách"></a>
