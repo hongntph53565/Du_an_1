@@ -19,22 +19,19 @@
                         <th>ADMIN</th>
                         <th></th>
                     </tr>
-                    
-                    <?php foreach ($accounts as $account): ?>
-    <tr>
-        <td><?= $account['ma_tk'] ?></td>
-        <td><?= $account['ten_tk'] ?></td>
-        <td><?= $account['ho_ten'] ?></td>
-        <td><?= $account['email'] ?></td>
-        <td><?= $account['dia_chi'] ?></td>
-        <td><?= $account['mat_khau'] ?></td>
-        <td><?= $account['admin'] ?></td>
-        <td>
-            <a href="index.php?ctl=delete-account&ma_tk=<?= $account['ma_tk'] ?>">Xóa</a>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-                    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="">Xóa</a>
+                        </td>
+                    </tr>
+
                 </table>
 
             </div>

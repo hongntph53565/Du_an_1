@@ -761,33 +761,32 @@ margin: 0;
 padding: 0 100px;
 }
 #category .sidebar {
-max-height: 500px; /* Giới hạn chiều cao */
-overflow-y: hidden; /* Ẩn thanh cuộn mặc định */
-transition: all 0.3s ease; /* Thêm hiệu ứng mượt */
-scrollbar-width: thin; /* Làm thanh cuộn mỏng hơn */
-scrollbar-color: #888 #f0f0f0; /* Màu thumb và màu track */
+  height: 600px;
+  max-height: 600px; /* Chiều cao tối đa của sidebar */
+  overflow-y: auto; /* Bật cuộn dọc nếu nội dung vượt quá chiều cao */
+  border: 1px solid #ddd; /* Thêm viền để dễ nhìn */
+  padding: 5px; /* Khoảng cách bên trong */
+  background-color: #f8f9fa; /* Màu nền */
 }
 
-.sidebar:hover {
-overflow-y: auto; /* Hiện thanh cuộn khi di chuột */
+.accordion-body ul li a {
+  text-decoration: none; /* Xóa gạch chân liên kết */
+}
+
+.accordion-body ul li a:hover {
+  text-decoration: underline; /* Thêm gạch chân khi hover */
+  color: red; /* Đổi màu chữ khi hover */
 }
 
 #category .sidebar{
 width: 25%;
 margin-right: 10px;
 padding: 0;
-background-color: #f9f9f9;
-border: none;
-height: 500px;
 }
 #category .sidebar li{
 border-bottom: 1px solid rgb(233, 223, 223);
-/* border-right: 1px solid rgb(235, 235, 235); */
 padding: 20px;
 font-size: 16px;
-}
-#category .sidebar a.active{
-color: red;
 }
 #accordionFlushExample,
 .accordion-item,

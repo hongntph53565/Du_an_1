@@ -1,5 +1,6 @@
 <?php
-class CategoryController{
+class CategoryController
+{
     public function list()
     {
         $categories = (new DanhMuc)->all();
@@ -42,6 +43,4 @@ class CategoryController{
             ]
         );
     }
-    }
-
-?>
+}

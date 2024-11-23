@@ -11,10 +11,6 @@ class AdminController{
         view("admin/binhluan/list");
        
     }
-    public function thongke()
-    {
-        view("admin/thongke/list");
-    }
     public function addsp()
     {
     
@@ -26,8 +22,6 @@ class AdminController{
         view("admin/sanpham/list");
        
     }
-    
-
     public function adddm()
     {
         view("admin/danhmuc/add");
