@@ -28,7 +28,6 @@ class CategoryController{
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = $_POST;
-            // dd($data);
             (new DanhMuc)->update($data, $data['ma_dm']);
             $message = "Cập nhật dữ liệu thành công";
         }

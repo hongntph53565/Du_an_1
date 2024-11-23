@@ -7,11 +7,13 @@ require_once "commons/function.php";
 //models
 require_once "models/DanhMuc.php";
 require_once "models/SanPham.php";
+require_once "models/TaiKhoan.php";
 //controller
 require_once "controllers/user/HomeController.php";
 require_once "controllers/admin/AdminController.php";
 require_once "controllers/admin/CategoryControler.php";
 require_once "controllers/admin/ProductController.php";
+require_once "controllers/admin/AccountController.php";
 
 
 
@@ -36,8 +38,9 @@ match ($ctl) {
     'delete-categories' => (new CategoryController)->delete(),
     'edit-categories' => (new CategoryController)->edit(),
 
-    'add-account' => (new AdminController)->addacc(),
-    'list-account' => (new AdminController)->listacc(),
+    'list-account' => (new AccountController)->list(),
+   
+    'delete-account' => (new AccountController)->delete(),
 
     'donhang' => (new AdminController)->donhang(),
     //client

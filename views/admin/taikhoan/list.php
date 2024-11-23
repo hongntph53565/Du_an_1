@@ -11,34 +11,35 @@
                 <table class="cmt">
                     <tr>
                         <th>ID</th>
-                        <th>HỌ TÊN</th>
-                        <th>USER</th>
+                        <th>Tên Tài Khoản</th>
+                        <th>Họ & Tên</th>
                         <th>EMAIL</th>
-                        <th>ẢNH</th>
-                        <th>VAI TRÒ</th>
+                        <th>Địa Chỉ</th>
+                        <th>Mật Khẩu</th>
+                        <th>ADMIN</th>
                         <th></th>
                     </tr>
                     
-                        <tr>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td><img src="" alt="" width="80%"></td>
-                            <td>11</td>
-                            <td>
-                                <a href="" class="crud">Sửa</a>
-                                <a href="" class="crud">Xóa</a>
-                            </td>
-                        </tr>
+                    <?php foreach ($accounts as $account): ?>
+    <tr>
+        <td><?= $account['ma_tk'] ?></td>
+        <td><?= $account['ten_tk'] ?></td>
+        <td><?= $account['ho_ten'] ?></td>
+        <td><?= $account['email'] ?></td>
+        <td><?= $account['dia_chi'] ?></td>
+        <td><?= $account['mat_khau'] ?></td>
+        <td><?= $account['admin'] ?></td>
+        <td>
+            <a href="index.php?ctl=delete-account&ma_tk=<?= $account['ma_tk'] ?>">Xóa</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
                     
                 </table>
 
             </div>
 
         </form>
-        <div class="content mb">
-            <a href="index.php?ctl=add-account"> <input type="button" value="Nhập thêm"></a>
-        </div>
+
     </div>
 </div>

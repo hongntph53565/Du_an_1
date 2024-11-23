@@ -1,7 +1,7 @@
 <?php
 const HOST = "localhost";
-const DBNAME = "duan1_2024";
+const DBNAME = "duan1_11.2024";
 const USERNAME = "root";
-const PASSWORD = "";
+const PASSWORD = "Hung1810";
 const PORT = "3306";
 ?>

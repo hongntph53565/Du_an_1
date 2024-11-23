@@ -19,10 +19,7 @@
             <label>Mật khẩu</label> <br>
             <input type="password" name="pass" placeholder="password">
           </div>
-          <div class="content mb">
-            <label>Hình ảnh</label> <br>
-            <input type="file" name="hinh">
-          </div>
+
         </div>
         <div class="danhang ">
           <div class="content mb">

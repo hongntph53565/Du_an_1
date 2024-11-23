@@ -18,6 +18,7 @@
                         <th>Giá</th>
                         <th>Hình</th>
                         <th>Số Lượng</th>
+                        <th>Sale Price</th>
                         <th>Mô tả</th>
                         <th>Mã dm</th>
                         <th>Thao tác</th>
@@ -31,6 +32,7 @@
                         <td><?= number_format($product['gia'], 0, ',', '.'); ?> VND</td>
                         <td><img src="<?= $product['anh']; ?>" alt="<?= $product['ten_sp']; ?>" width="100"></td>
                         <td><?= $product['so_luong']; ?></td>
+                        <td><?= $product['gia_giam']; ?></td>
                         <td><?= $product['mo_ta']; ?></td>
                         <td><?= $product['ma_dm']; ?></td>
                         <td>
