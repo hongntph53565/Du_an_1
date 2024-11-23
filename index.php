@@ -6,11 +6,17 @@ require_once "commons/env.php";
 require_once "commons/function.php";
 //models
 require_once "models/DanhMuc.php";
+require_once "models/SanPham.php";
 //controller
+require_once "controllers/admin/AdminController.php";
+require_once "controllers/admin/CategoryController.php";
+require_once "controllers/admin/ProductController.php";
+
+
 require_once "controllers/user/HomeController.php";
 require_once "controllers/user/UserCategoryController.php";
-require_once "controllers/admin/AdminController.php";
-require_once "controllers/admin/CategoryControler.php";
+
+
 
 
 
