@@ -6,12 +6,12 @@ require_once "commons/env.php";
 require_once "commons/function.php";
 //models
 require_once "models/DanhMuc.php";
-require_once "models/TaiKhoan.php";
 //controller
 require_once "controllers/user/HomeController.php";
 require_once "controllers/user/UserCategoryController.php";
 require_once "controllers/admin/AdminController.php";
-require_once "controllers/admin/CategoryController.php";
+require_once "controllers/admin/CategoryControler.php";
+
 
 
 $ctl = $_GET['ctl'] ?? "";
@@ -22,8 +22,12 @@ match ($ctl) {
     
     'list-comment' => (new AdminController)->binhluan(),
     'admin-statistical' => (new AdminController)->thongke(),
-    'add-product' => (new AdminController)->addsp(),
-    'list-product' => (new AdminController)->listsp(),
+    'add-product' => (new ProductController)->addsp(),
+    'list-product' => (new ProductController)->list(),
+    'store-product' => (new ProductController)->store(),
+    'delete-product' => (new ProductController)->delete(),
+    'edit-product' => (new ProductController)->edit(),
+
 
     'list-categories' => (new CategoryController)->list(),
     'add-categories' => (new CategoryController)->add(),
