@@ -20,16 +20,15 @@
                 data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                        <?php foreach ($getParentCategory as $cate) : ?>
+                        <?php foreach ($getChildrenByParent as $child) : ?>
                             <li>
-                                <a href="index.php?ctl=newproduct&ma_dm=<?= $cate['ma_dm'] ?>">
-                                    <?= $cate['ten_dm'] ?>
+                                <a href="index.php?ctl=newproduct&ma_dm=<?= $child['parent_id'] ?>">
+                                    <?= $child['ten_dm'] ?>
                                 </a>
                             </li>
                         <?php endforeach ?>
                     </ul>
                 </div>
-
             </div>
         </div>
         <div class="accordion-item">

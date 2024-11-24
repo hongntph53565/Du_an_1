@@ -22,6 +22,14 @@ class DanhMuc
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getChildrenByParent($parent_id)
+    {
+        $sql = "SELECT * FROM danh_muc WHERE parent_id=:parent_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':parent_id' => $parent_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function insert($data)
     {
         $sql = "INSERT INTO danh_muc(ten_dm) VALUES (:ten_dm)";

@@ -52,5 +52,12 @@ class SanPham
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['ma_sp' => $ma_sp]);
     }
+
+    public function getProductInCategory($ma_dm) {
+        $sql = "SELECT * FROM san_pham WHERE ma_dm=:ma_dm";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['ma_dm' => $ma_dm]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

@@ -54,10 +54,7 @@ match ($ctl) {
     
     'cart' => (new HomeController)->giohang(),
     'newproduct' => (new UserCategoryController)->newproduct(),
-    'newproduct-nu' => (new UserCategoryController)->list(),
-    'nu' => (new HomeController)->categorynu(),
-    'nam' => (new HomeController)->categorynam(),
-    'boy' => (new HomeController)->categoryboy(),
-    'girl' => (new HomeController)->categorygirl(),
+    'danh-muc' => (new UserCategoryController)->list(),
+    
     default => "Không tìm thấy file"
 };

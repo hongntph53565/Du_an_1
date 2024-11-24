@@ -3,7 +3,8 @@ class HomeController
 {
     public function index()
     {
-        view("client/home");
+        $danh_muc = (new DanhMuc)->getParentCategory();
+        view("client/home", compact('danh_muc'));
     }
 
     public function giohang()
@@ -11,20 +12,5 @@ class HomeController
         view("client/cart");
     }
 
-    public function categorynu()
-    {
-        view("client/categorynu");
-    }
-    public function categorynam()
-    {
-        view("client/categorynam");
-    }
-    public function categoryboy()
-    {
-        view("client/categoryboy");
-    }
-    public function categorygirl()
-    {
-        view("client/categorygirl");
-    }
+    
 }

@@ -24,11 +24,18 @@
                     <img src="images/logo.svg" alt="" width="70px">
                 </a>
                 <ul class="menu-button">
-                    <li><a href="index.php?ctl=newproduct">Sản phẩm mới</a></li>
+                    <!-- <li><a href="index.php?ctl=newproduct">Sản phẩm mới</a></li>
                     <li><a href="index.php?ctl=nu">Nữ</a></li>
                     <li><a href="index.php?ctl=nam">Nam</a></li>
                     <li><a href="index.php?ctl=girl">Bé gái</a></li>
-                    <li><a href="index.php?ctl=boy">Bé trai</a></li>
+                    <li><a href="index.php?ctl=boy">Bé trai</a></li> -->
+                    <?php foreach($danh_muc as $dm): ?>
+                        <li>
+                            <a href="index.php?ctl=danh-muc&ma_dm=<?= $dm['ma_dm']?>">
+                                <?= $dm['ten_dm']?>
+                            </a>
+                        </li>
+                    <?php endforeach?>
                 </ul>
             </div>
             <div class="right">
