@@ -1,32 +1,39 @@
 <?php
 class AuthController
 {
-    public function dangky()
+    public function register()
     {
-        view("client/dangky");
+        $categories = (new Category)->getParentCategory();
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $data = $_POST;
+            $data['image'] = upload_file($_FILES['image']);
+            (new Account)->insert($data);
+            $message = "Thêm mới thành công";
+        }
+        return view("client/register", compact('categories'));
     }
     public function login()
     {
         $error = "";
+        $categories = (new Category)->getParentCategory();
         if (isset($_POST['submit'])) {
-            $ten_tk = $_POST['ten_tk'];
-            $mat_khau = $_POST['mat_khau'];
-            $user = (new TaiKhoan)->checkUser($ten_tk, $mat_khau);
-            // var_dump($user);die;
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $user = (new Account)->checkUser($username, $password);
             if ($user) {
-                $_SESSION['ten_tk'] = $ten_tk;
-                $_SESSION['mat_khau'] = $mat_khau;
-                header("location: index.php?ctl=myacc");
+                $_SESSION['username'] = $username;
+                $_SESSION['password'] = $password;
+                header("location: index.php?ctl=myaccount");
                 exit;
             } else {
                 $error = "Tên đăng nhập hoặc mật khẩu không chính xác";
             }
         }
-
-        return view("client/dangnhap", compact('error'));
+        return view("client/login", compact('error', 'categories'));
     }
-    public function myacc()
+    public function myaccount()
     {
-        view("client/myacc");
+        $categories = (new Category)->getParentCategory();
+        view("client/myaccount", compact('categories'));
     }
 }

@@ -1,4 +1,4 @@
-<?php include_once "views/client/header-checkout.phpp" ?>
+<?php include_once "views/client/header-checkout.php" ?>
 <div id="checkout">
     <div class="main">
         <div class="thongtin">

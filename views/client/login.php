@@ -7,11 +7,11 @@
                 <h3>Đăng nhập</h3>
                 <div class="mb-3">
                     <label class="form-label">Tên tài khoản</label>
-                    <input type="text" class="form-control" name="ten_tk" required>
+                    <input type="text" class="form-control" name="username" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Mật khẩu</label>
-                    <input type="password" class="form-control" name="mat_khau" required>
+                    <input type="password" class="form-control" name="password" required>
                 </div>
                 <div style="color: red;">
                     <?php if (isset($error)) {

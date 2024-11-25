@@ -11,7 +11,7 @@ class ProductController
 
     public function addsp()
     {
-        $categories = (new DanhMuc)->all();
+        $categories = (new Category)->all();
         view("admin/sanpham/add", ['categories' => $categories]);
     }
 
@@ -63,7 +63,7 @@ class ProductController
 
         $ma_sp = $_GET['ma_sp'];
         $product = (new SanPham)->findOne($ma_sp);
-        $categories = (new DanhMuc)->all();
+        $categories = (new Category)->all();
         view("admin/sanpham/edit", [
             'product' => $product,
             'categories' => $categories,

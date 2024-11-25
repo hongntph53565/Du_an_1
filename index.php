@@ -1,16 +1,19 @@
 <?php
-
+session_start();
 //commons
 require_once "commons/env.php";
 require_once "commons/function.php";
 //models
-require_once "models/DanhMuc.php";
+require_once "models/Category.php";
 require_once "models/SanPham.php";
-require_once "models/TaiKhoan.php";
+require_once "models/Account.php";
+require_once "models/Comment.php";
 //controller
 require_once "controllers/admin/AdminController.php";
 require_once "controllers/admin/CategoryController.php";
 require_once "controllers/admin/ProductController.php";
+require_once "controllers/admin/AccountController.php";
+require_once "controllers/admin/CommentController.php";
 
 require_once "controllers/user/HomeController.php";
 require_once "controllers/user/AuthController.php";
@@ -26,7 +29,6 @@ match ($ctl) {
     //admin
     'admin' => (new AdminController)->trangchu(),
     
-    'list-comment' => (new AdminController)->binhluan(),
     'add-product' => (new ProductController)->addsp(),
     'list-product' => (new ProductController)->list(),
     'store-product' => (new ProductController)->store(),
@@ -40,13 +42,17 @@ match ($ctl) {
     'delete-categories' => (new CategoryController)->delete(),
     'edit-categories' => (new CategoryController)->edit(),
 
-    'dangky' => (new AuthController)->dangky(),
+    'dangky' => (new AuthController)->register(),
     'dangnhap' => (new AuthController)->login(),
-    'myacc' => (new AuthController)->myacc(),
+    'myaccount' => (new AuthController)->myaccount(),
 
-    'add-account' => (new AdminController)->addacc(),
-    'list-account' => (new AdminController)->listacc(),
+    'add-account' => (new AccountController)->add(),
+    'list-account' => (new AccountController)->list(),
+    'delete-account' => (new AccountController)->delete(),
 
+
+    'list-comment' => (new CommentController)->list(),
+    'delete-comment' => (new CommentController)->delete(),
 
     'donhang' => (new AdminController)->donhang(),
     //client

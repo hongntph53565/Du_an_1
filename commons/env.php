@@ -6,3 +6,5 @@ const PASSWORD = "";
 const PORT = "3306";
 
 const BASE_URL = "http://localhost/DuAn1/";
+
+const ADMIN_URL = BASE_URL . "admin/";

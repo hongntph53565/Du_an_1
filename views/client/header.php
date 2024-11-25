@@ -4,18 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>CANIFA</title>
 </head>
 
 <body>
-
-
     <div id="header">
         <div class="header-top">ĐỔI HÀNG MIỄN PHÍ - TẠI TẤT CẢ CỬA HÀNG TRONG VÒNG 30 NGÀY</div>
         <div class="menu">
@@ -29,13 +23,13 @@
                     <li><a href="index.php?ctl=nam">Nam</a></li>
                     <li><a href="index.php?ctl=girl">Bé gái</a></li>
                     <li><a href="index.php?ctl=boy">Bé trai</a></li> -->
-                    <?php foreach($danh_muc as $dm): ?>
+                    <?php foreach ($categories as $cate): ?>
                         <li>
-                            <a href="index.php?ctl=danh-muc&ma_dm=<?= $dm['ma_dm']?>">
-                                <?= $dm['ten_dm']?>
+                            <a href="index.php?ctl=danh-muc&cate_id=<?= $cate['cate_id'] ?>">
+                                <?= $cate['cate_name'] ?>
                             </a>
                         </li>
-                    <?php endforeach?>
+                    <?php endforeach ?>
                 </ul>
             </div>
             <div class="right">
