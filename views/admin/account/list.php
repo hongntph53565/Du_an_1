@@ -24,7 +24,7 @@
                     <tr>
                         <th scope="row"><?= $acc['acc_id'] ?></th>
                         <th><?= $acc['fullname'] ?></th>
-                        <th><?= $acc['image'] ?></th>
+                        <th><img src="<?= $acc['image'] ?>" alt="" width="60"></th>
                         <th><?= $acc['email'] ?></th>
                         <th><?= $acc['phone'] ?></th>
                         <th><?= $acc['address'] ?></th>

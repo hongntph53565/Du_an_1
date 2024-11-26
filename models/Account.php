@@ -16,10 +16,11 @@ class Account
     }
     public function insert($data)
     {
-        $sql = "INSERT INTO account(username, password, fullname, image, email, phone, address, birthday, cre_date, role) 
-        VALUES (:username, :password, :fullname, :image, :email, :phone, :address, :birthday, :cre_date, :role)";
+        $sql = "INSERT INTO account(username, password, fullname, image, email, phone, address, birthday) 
+        VALUES (:username, :password, :fullname, :image, :email, :phone, :address, :birthday)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
+        
     }
     public function find_one($acc_id)
     {

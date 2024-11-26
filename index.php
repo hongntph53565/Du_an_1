@@ -5,7 +5,7 @@ require_once "commons/env.php";
 require_once "commons/function.php";
 //models
 require_once "models/Category.php";
-require_once "models/SanPham.php";
+require_once "models/Product.php";
 require_once "models/Account.php";
 require_once "models/Comment.php";
 //controller
@@ -59,8 +59,7 @@ match ($ctl) {
     '' => (new HomeController)->index(),
     
     'cart' => (new HomeController)->giohang(),
-    'newproduct' => (new UserCategoryController)->newproduct(),
     'danh-muc' => (new UserCategoryController)->list(),
     
-    default => "Không tìm thấy file"
+    default => view('404'),
 };
