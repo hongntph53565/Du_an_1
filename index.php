@@ -29,7 +29,7 @@ match ($ctl) {
     //admin
     'admin' => (new AdminController)->trangchu(),
     
-    'add-product' => (new ProductController)->addsp(),
+    'add-product' => (new ProductController)->add(),
     'list-product' => (new ProductController)->list(),
     'store-product' => (new ProductController)->store(),
     'delete-product' => (new ProductController)->delete(),

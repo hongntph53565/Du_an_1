@@ -9,7 +9,7 @@ class ProductController
     }
 
 
-    public function addsp()
+    public function add()
     {
         $categories = (new Category)->all();
         view("admin/sanpham/add", ['categories' => $categories]);
