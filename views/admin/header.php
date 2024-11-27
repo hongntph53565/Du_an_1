@@ -21,8 +21,8 @@
           <ul>
             <li><a href="index.php?ctl=admin">Trang chủ</a></li>
             <li><a href="index.php?ctl=add-categories">Danh mục</a></li>
-            <li><a href="index.php?ctl=list-product">Hàng hóa</a></li>
-            <li><a href="index.php?ctl=list-account">Khách hàng</a></li>
+            <li><a href="index.php?ctl=list-product">Sản phẩm</a></li>
+            <li><a href="index.php?ctl=list-account">Tài khoản</a></li>
             <li><a href="index.php?ctl=donhang">Đơn hàng</a></li>
             <li><a href="index.php?ctl=list-comment">Bình luận</a></li>
             <li><a href="#">Thoát</a></li>

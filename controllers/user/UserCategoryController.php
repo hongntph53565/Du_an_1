@@ -11,7 +11,9 @@ class UserCategoryController
 
         $id = $getChildrenByParent[0]['cate_id'];
 
-        $product = (new Product)->getProductInCategory($id);
+        $product = (new Product)->getProductInCategory($cate_id);
+        // var_dump($product);
+        // exit;
 
         return view("client/category", compact('getChildrenByParent', 'categories', 'product', 'getParentCategory'));
     }

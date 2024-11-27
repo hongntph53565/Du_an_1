@@ -5,9 +5,10 @@ class AdminController{
         view("admin/home");
     }
 
-    public function donhang()
+    public function cart()
     {
-        view("admin/donhang/list");
+        view("admin/cart/list");
     }
+    
 }
 ?>

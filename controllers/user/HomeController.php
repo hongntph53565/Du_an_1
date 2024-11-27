@@ -7,7 +7,7 @@ class HomeController
         view("client/home", compact('categories'));
     }
 
-    public function giohang()
+    public function cart()
     {
         view("client/cart");
     }

@@ -1,14 +1,20 @@
 <?php
 session_start();
+
 //commons
+
 require_once "commons/env.php";
 require_once "commons/function.php";
+
 //models
+
 require_once "models/Category.php";
 require_once "models/Product.php";
 require_once "models/Account.php";
 require_once "models/Comment.php";
+
 //controller
+
 require_once "controllers/admin/AdminController.php";
 require_once "controllers/admin/CategoryController.php";
 require_once "controllers/admin/ProductController.php";
@@ -28,7 +34,7 @@ $ctl = $_GET['ctl'] ?? "";
 match ($ctl) {
     //admin
     'admin' => (new AdminController)->trangchu(),
-    
+
     'add-product' => (new ProductController)->add(),
     'list-product' => (new ProductController)->list(),
     'store-product' => (new ProductController)->store(),
@@ -42,9 +48,10 @@ match ($ctl) {
     'delete-categories' => (new CategoryController)->delete(),
     'edit-categories' => (new CategoryController)->edit(),
 
-    'dangky' => (new AuthController)->register(),
-    'dangnhap' => (new AuthController)->login(),
+    'register' => (new AuthController)->register(),
+    'login' => (new AuthController)->login(),
     'myaccount' => (new AuthController)->myaccount(),
+    'logout' => (new AuthController)->logout(),
 
     'add-account' => (new AccountController)->add(),
     'list-account' => (new AccountController)->list(),
@@ -53,13 +60,11 @@ match ($ctl) {
 
     'list-comment' => (new CommentController)->list(),
     'delete-comment' => (new CommentController)->delete(),
-
-    'donhang' => (new AdminController)->donhang(),
-    //client
+    // //client
     '' => (new HomeController)->index(),
-    
-    'cart' => (new HomeController)->giohang(),
-    'danh-muc' => (new UserCategoryController)->list(),
-    
+
+    'cart' => (new HomeController)->cart(),
+    'product' => (new UserCategoryController)->list(),
+
     default => view('404'),
 };

@@ -2,7 +2,7 @@
 <div id="main">
     <div id="main">
         <div class="border">
-            <form action="<?= BASE_URL . '?ctl=dangnhap'?>" class="login" method="post">
+            <form action="<?= BASE_URL . '?ctl=login'?>" class="login" method="post">
                 <img src="images/dangnhap.png" alt=""> <br><br>
                 <h3>Đăng nhập</h3>
                 <div class="mb-3">
@@ -17,7 +17,7 @@
                     <?php if (isset($error)) {
                         echo $error;
                     } ?></div>
-                <a href="index.php?ctl=dangky">Đăng ký tại đây</a><br> <br>
+                <a href="index.php?ctl=register">Đăng ký tại đây</a><br> <br>
                 
                 <button type="submit" class="btn btn-primary" style="width: 100%;" name="submit">Đăng nhập</button>
 

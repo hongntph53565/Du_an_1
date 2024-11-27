@@ -31,7 +31,7 @@
                     <li><a href="index.php?ctl=boy">Bé trai</a></li> -->
                     <?php foreach ($categories as $cate): ?>
                         <li>
-                            <a href="index.php?ctl=danh-muc&cate_id=<?= $cate['cate_id'] ?>">
+                            <a href="index.php?ctl=product&cate_id=<?= $cate['cate_id'] ?>">
                                 <?= $cate['cate_name'] ?>
                             </a>
                         </li>
@@ -51,7 +51,7 @@
                     <input type="text" placeholder="Tìm kiếm" />
                 </div>
                 <div class="icon">
-                    <a href="index.php?ctl=dangnhap">
+                    <a href="index.php?ctl=login">
                         <img src="images/taikhoan.jpg" alt="" width="20px" style="color: red;">
                         <p>Tài khoản</p>
                     </a>

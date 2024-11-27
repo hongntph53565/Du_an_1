@@ -78,40 +78,21 @@
     </div>
 
     <div class="main">
+        <?php var_dump($product); ?>
+        <?php foreach ($product as $pro): ?>
+            <div class="item">
+                <a href="">
+                    <img src="<?= $pro['image'] ?>" alt="">
+                    <div class="item-title"><?= $pro['name_pro'] ?></div>
+                    <div class="item-price"><?= $pro['price'] ?></div>
+                    <div class="sale">
+                        <del><?= $pro['sale'] ?></del>
+                        <p>-30%</p>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach ?>
 
-        <div class="item">
-            <a href="">
-                <img src="images/Ao_phong_tat_ca_Nu.jpg" alt="">
-                <div class="item-title">Áo phông/ Áo thun</div>
-                <div class="item-price">279.00đ</div>
-                <div class="sale">
-                    <del>500.000đ</del>
-                    <p>-30%</p>
-                </div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="">
-                <img src="images/Ao_phong_tat_ca_Nu.jpg" alt="">
-                <div class="item-title">Áo phông/ Áo thun</div>
-                <div class="item-price">279.00đ</div>
-                <div class="sale">
-                    <del>500.000đ</del>
-                    <p>-30%</p>
-                </div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="">
-                <img src="images/Ao_phong_tat_ca_Nu.jpg" alt="">
-                <div class="item-title">Áo phông/ Áo thun</div>
-                <div class="item-price">279.00đ</div>
-                <div class="sale">
-                    <del>500.000đ</del>
-                    <p>-30%</p>
-                </div>
-            </a>
-        </div>
     </div>
 </div>
 <?php include_once "views/client/footer.php" ?>

@@ -28,7 +28,9 @@ class Product
             'image'      => $data['image'] ?? null,
             'describe'   => $data['describe'] ?? null,
         ];
+        // var_dump($params);
         $stmt->execute($params);
+
     }
     public function update($data, $pro_id)
     {

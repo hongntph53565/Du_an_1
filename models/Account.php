@@ -22,6 +22,13 @@ class Account
         $stmt->execute($data);
         
     }
+    public function update($data)
+    {
+        $sql = "UPDATE account SET fullname=:fullname, phone=:phone, email=:email, birthday=:birthday WHERE acc_id=:acc_id";
+        $stmt = $this->conn->prepare($sql);
+        // var_dump($data);
+        $stmt->execute($data);
+    }
     public function find_one($acc_id)
     {
         $sql = "SELECT * FROM account WHERE acc_id=$acc_id";
@@ -42,4 +49,5 @@ class Account
         $stmt->execute(['username' => $username, 'password' => $password]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 }
