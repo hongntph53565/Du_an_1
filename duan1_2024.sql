@@ -103,14 +103,14 @@ INSERT INTO `category` (`cate_id`, `cate_name`, `parent_id`) VALUES
 (24, 'Bộ ngủ', 3),
 (25, 'Quần jean', 3),
 (26, 'Áo polo', 3),
-(27, 'Váy', 4);
+(27, 'Váy', 4),
 (28, 'Áo phông', 4),
 (29, 'Áo khoác gió', 4),
 (30, 'Áo nỉ', 4),
 (31, 'Áo len', 4),
 (32, 'Bộ ngủ', 4),
 (33, 'Quần jean', 4),
-(34, 'Áo polo', 4),
+(34, 'Áo polo', 4);
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,7 @@ CREATE TABLE `product` (
   `quantity` int NOT NULL,
   `sale` int NOT NULL,
   `image` varchar(200) NOT NULL,
-  `describe` varchar(200) NOT NULL,
+  `description` varchar(200) NOT NULL,
   `view` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

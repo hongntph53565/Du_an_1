@@ -26,18 +26,18 @@
 
                     <?php foreach ($products as $product): ?>
                     <tr>
-                        <td><input type="checkbox" name="ma_sp[]" value="<?= $product['ma_sp']; ?>"></td>
-                        <td><?= $product['ma_sp']; ?></td>
+                        <td><input type="checkbox" name="pro_id[]" value="<?= $product['pro_id']; ?>"></td>
+                        <td><?= $product['pro_id']; ?></td>
                         <td><?= $product['ten_sp']; ?></td>
-                        <td><?= number_format($product['gia'], 0, ',', '.'); ?> VND</td>
-                        <td><img src="<?= $product['anh']; ?>" alt="<?= $product['ten_sp']; ?>" width="100"></td>
-                        <td><?= $product['so_luong']; ?></td>
-                        <td><?= $product['gia_giam']; ?></td>
-                        <td><?= $product['mo_ta']; ?></td>
-                        <td><?= $product['ma_dm']; ?></td>
+                        <td><?= number_format($product['price'], 0, ',', '.'); ?> VND</td>
+                        <td><img src="<?= $product['image']; ?>" alt="<?= $product['image']; ?>" width="100"></td>
+                        <td><?= $product['quantity']; ?></td>
+                        <td><?= $product['sale']; ?></td>
+                        <td><?= $product['description']; ?></td>
+                        <td><?= $product['cate_id']; ?></td>
                         <td>
-                            <a href="index.php?ctl=edit-product&ma_sp=<?= $product['ma_sp']; ?>" class="crud">Sửa</a><br><br>
-                            <a href="index.php?ctl=delete-product&ma_sp=<?= $product['ma_sp']; ?>" class="crud" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">Xóa</a>
+                            <a href="index.php?ctl=edit-product&pro_id=<?= $product['pro_id']; ?>" class="crud">Sửa</a><br><br>
+                            <a href="index.php?ctl=delete-product&pro_id=<?= $product['pro_id']; ?>" class="crud" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">Xóa</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

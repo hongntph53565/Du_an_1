@@ -34,6 +34,8 @@ match ($ctl) {
     'store-product' => (new ProductController)->store(),
     'delete-product' => (new ProductController)->delete(),
     'edit-product' => (new ProductController)->edit(),
+    
+   
 
 
     'list-categories' => (new CategoryController)->list(),
@@ -59,7 +61,10 @@ match ($ctl) {
     '' => (new HomeController)->index(),
     
     'cart' => (new HomeController)->giohang(),
-    'danh-muc' => (new UserCategoryController)->list(),
+    
+ 'product' => (new UserCategoryController)->list(),
+ 'cart' => (new UserCategoryController)->list(),
+ 'detail' => (new UserCategoryController)->detail(),
     
     default => view('404'),
 };

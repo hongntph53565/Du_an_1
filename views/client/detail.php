@@ -2,14 +2,14 @@
 <div id="detail">
     <div id="main-detail">
         <div class="images">
-            <img src="images/sweater.webp" alt="">
+            <img style="width: 430px;height: 600px; padding:20px;  " src="<?=$productDetails['image']?>" alt="">
         </div>
         <div class="product-detail">
-            <div class="product-title">Áo nỉ nữ</div>
-            <div class="product-id">Mã sp: <p>6TW24W006</p>
+            <div class="product-title"> <?=$productDetails['ten_sp']?>  </div>
+            <div class="product-id">Mã sp: <p><?=$productDetails['pro_id']?></p>
             </div>
-            <div class="product-price">479.200 ₫</div>
-            <div class="product-sale"><del>599.000 ₫</del>-20%</div>
+            <div class="product-price"><?= number_format($productDetails['sale'], 0, ',', '.'); ?> VND</div>
+            <div class="product-sale"><del><?= number_format($productDetails['price'], 0, ',', '.'); ?> VND</del>-20%</div>
             <div class="product-size">
                 <p>Kích cỡ:</p>
                 <span>XS</span>
@@ -31,7 +31,7 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            Áo nỉ nữ cổ tròn dáng rộng, chi tiết đồ họa khớp màu với kẻ nhấn ở bo cổ và tay.
+                        <?=$productDetails['description']?>
                         </div>
                     </div>
                 </div>

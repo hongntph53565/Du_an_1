@@ -9,7 +9,11 @@ class HomeController
 
     public function giohang()
     {
-        view("client/cart");
+        // Lấy danh mục cha
+        $categories = (new Category)->getParentCategory();
+    
+        // Trả về view và truyền danh mục
+        return view('client/cart', compact('categories'));
     }
 
     

@@ -45,11 +45,12 @@ class Category
 
     public function findOne($cate_id)
     {
-        $sql = "SELECT * FROM category WHERE cate_id=$cate_id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+       $sql = "SELECT * FROM category WHERE cate_id = :cate_id";
+       $stmt = $this->conn->prepare($sql);
+       $stmt->execute([':cate_id' => $cate_id]);
+       return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 
 
     public function delete($cate_id)

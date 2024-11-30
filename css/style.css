@@ -1084,8 +1084,7 @@ del {
 
 /* footer giohang */
 #footer-summary {
-  position: fixed;
-  bottom: 0;
+  
   left: 0;
   width: 100%;
   background-color: white;
@@ -1094,6 +1093,7 @@ del {
   padding: 10px 20px;
   text-align: center;
   z-index: 1000;
+  
 }
 
 #footer-summary .discount-code {

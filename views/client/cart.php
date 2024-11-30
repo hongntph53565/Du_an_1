@@ -1,4 +1,4 @@
-<?php include_once "views/client/header-cart.php" ?>
+<?php include_once "views/client/header.php" ?>
 <div id="main">
     <p class="cart-summary">Giỏ hàng(21+)</p>
     <div class="item mb-4">
@@ -111,6 +111,20 @@
         </div>
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; width: 100%;">
-
+  <div id="footer-summary">
+            <div class="footer-content">
+                <div class="discount-code">
+                    <span>Mã ưu đãi</span>
+                    <a href="#">Chọn hoặc nhập mã</a>
+                </div>
+                <div class="subtotal">
+                    <span>Tạm tính</span>
+                    <span class="price">5.959.900 đ</span>
+                </div>
+                <div class="savings">
+                    <span class="save-amount">(Tiết kiệm 629.100 đ)</span>
+                </div>
+                <button class="checkout-button">Thanh toán</button>
+            </div>
+        </div>
 </div>
-<?php include_once "views/client/footer-cart.php" ?>

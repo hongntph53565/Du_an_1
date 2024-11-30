@@ -31,7 +31,7 @@
                     <li><a href="index.php?ctl=boy">Bé trai</a></li> -->
                     <?php foreach ($categories as $cate): ?>
                         <li>
-                            <a href="index.php?ctl=danh-muc&cate_id=<?= $cate['cate_id'] ?>">
+                            <a href="index.php?ctl=product&parent_id=<?= $cate['parent_id'] ?>&cate_id=<?= $cate['cate_id'] ?>">
                                 <?= $cate['cate_name'] ?>
                             </a>
                         </li>
@@ -40,7 +40,8 @@
             </div>
             <div class="right">
                 <div class="search-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="none" viewBox="0 0 24 24"
+                   <form  method="post"action=""> 
+                    <svg type="submit" name="sbm_filler" xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="none" viewBox="0 0 24 24"
                         stroke="#aaa">
                         <!-- Vòng tròn kính lúp -->
                         <circle cx="10" cy="10" r="6.5" stroke="#aaa" stroke-width="2" />
@@ -48,7 +49,9 @@
                         <line x1="14.5" y1="14.5" x2="20" y2="20" stroke="#aaa" stroke-width="2"
                             stroke-linecap="round" />
                     </svg>
-                    <input type="text" placeholder="Tìm kiếm" />
+                    <input type="search" name="search_all"  placeholder="Tìm kiếm" />
+                </form>
+                    
                 </div>
                 <div class="icon">
                     <a href="index.php?ctl=dangnhap">

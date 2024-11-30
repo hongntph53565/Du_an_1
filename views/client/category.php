@@ -12,13 +12,16 @@
             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                        <?php foreach ($getChildrenByParent as $child) : ?>
+                    
+                    <?php foreach ($getChildrenByParent as $child) : ?>
                             <li>
-                                <a href="index.php?ctl=product&cate_id=<?= $child['parent_id'] ?>">
+                                <a href="index.php?ctl=product&cate_id=<?= $child['cate_id'] ?> ">
+                                    
                                     <?= $child['cate_name'] ?>
                                 </a>
                             </li>
                         <?php endforeach ?>
+
                     </ul>
                 </div>
             </div>
@@ -78,40 +81,24 @@
     </div>
 
     <div class="main">
+    <?php 
+    $check = $_GET['cate_id'] ?? ""; 
+    foreach ($product as $pro): 
+        if (!empty($check) && $pro['cate_id'] == $check): ?>
+            <div class="item">
+                <a href="index.php?ctl=detail&pro_id=<?= $pro['pro_id'] ?>">
+                    <img src="<?= $pro['image'] ?>" alt="">
+                    <div class="item-title"><?= $pro['ten_sp'] ?></div>
+                    <div class="item-price"><?= number_format($pro['price'], 0, ',', '.'); ?> VND</div>
+                    <div class="sale">
+                        <del><?= $pro['sale'] ?></del>
+                        <p style="color:red; font-weight:bold;">-30%</p>
+                    </div>
+                </a>
+            </div>
+        <?php endif;
+    endforeach ?>
+</div>
 
-        <div class="item">
-            <a href="">
-                <img src="images/Ao_phong_tat_ca_Nu.jpg" alt="">
-                <div class="item-title">Áo phông/ Áo thun</div>
-                <div class="item-price">279.00đ</div>
-                <div class="sale">
-                    <del>500.000đ</del>
-                    <p>-30%</p>
-                </div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="">
-                <img src="images/Ao_phong_tat_ca_Nu.jpg" alt="">
-                <div class="item-title">Áo phông/ Áo thun</div>
-                <div class="item-price">279.00đ</div>
-                <div class="sale">
-                    <del>500.000đ</del>
-                    <p>-30%</p>
-                </div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="">
-                <img src="images/Ao_phong_tat_ca_Nu.jpg" alt="">
-                <div class="item-title">Áo phông/ Áo thun</div>
-                <div class="item-price">279.00đ</div>
-                <div class="sale">
-                    <del>500.000đ</del>
-                    <p>-30%</p>
-                </div>
-            </a>
-        </div>
-    </div>
 </div>
 <?php include_once "views/client/footer.php" ?>
