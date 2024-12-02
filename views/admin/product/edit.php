@@ -13,7 +13,7 @@
           </div>
           <div class="content mb">
             <label>Tên sản phẩm </label> <br>
-            <input type="text" name="ten_sp" value="<?= $product['ten_sp']; ?>" required>
+            <input type="text" name="name_pro" value="<?= $product['name_pro']; ?>" required>
           </div>
           <div class="content mb">
             <label>Đơn giá</label> <br>
@@ -21,7 +21,11 @@
           </div>
           <div class="content mb">
             <label>Hình ảnh hiện tại</label> <br>
+<<<<<<< HEAD:views/admin/sanpham/edit.php
             <img src="<?= $product['image']; ?>" alt="Hình sản phẩm" width="100">
+=======
+            <img src="<?= $product['image']; ?>" alt="<?= $product['name_pro']; ?>" width="80">
+>>>>>>> 128849ba35a81e740625ad88b3e02274b49c551b:views/admin/product/edit.php
           </div>
           <div class="content mb">
             <label>Hình ảnh mới (nếu có)</label> <br>
@@ -53,10 +57,17 @@
 
       <div class="content mb">
         <label>Mô tả</label> <br>
+<<<<<<< HEAD:views/admin/sanpham/edit.php
         <textarea name="description" required><?= $product['description']; ?></textarea>
       </div>
 
       <input type="hidden" name="pro_id" value="<?= $product['pro_id']?>">
+=======
+        <textarea name="describe" required><?= $product['describe']; ?></textarea>
+      </div>
+
+      <input type="hidden" name="pro_id" value="<?= $product['pro_id'] ?>">
+>>>>>>> 128849ba35a81e740625ad88b3e02274b49c551b:views/admin/product/edit.php
       <div class="content mb">
         <input type="submit" value="Cập nhật">
         <a href="index.php?ctl=list-product"><input type="button" value="Danh sách"></a>

@@ -397,11 +397,6 @@ a:hover {
 
 
 
-
-
-
-
-
 /* main myacc  */
 #content {
   display: flex;
@@ -417,7 +412,7 @@ a:hover {
   border-radius: 10px;
 }
 
-#content .sidebar .avt {
+#content .sidebar .avt{
   text-align: center;
   font-size: 17px;
   font-weight: bold;
@@ -426,8 +421,9 @@ a:hover {
 
 #content .sidebar .avt img {
   width: 100px;
-  border-radius: 100%;
-  border: 1px solid #f3f3f3;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #666;
 }
 
 #content .sidebar .sbcon {
@@ -451,7 +447,10 @@ a:hover {
   border-radius: 3px;
   padding: 2px;
 }
-
+#content .sidebar a{
+  text-decoration: none;
+  color: #252525;
+}
 #content .main-myacc {
   width: 70%;
   background-color: white;
@@ -488,6 +487,16 @@ a:hover {
   border: 1px solid rgb(199, 199, 199);
   padding: 8px;
   background-color: #edf1f5;
+}
+#content .edit-acc button {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid rgb(199, 199, 199);
+  padding: 8px;
+  color:white;
+  font-weight: bolder;
+  background-color: #da291c;
 }
 
 /* main checkout */
@@ -898,7 +907,6 @@ del {
 .accordion-body ul li a {
   text-decoration: none;
   color: #252525;
-
 }
 
 .accordion-body ul li a:hover {

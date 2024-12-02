@@ -6,7 +6,7 @@
   </div>
 
   <div class="content form_content">
-    <form action="index.php?ctl=store-product" method="POST" enctype="multipart/form-data">
+    <form action="index.php?ctl=store-product" method="post" enctype="multipart/form-data">
       <div class="ngang">
         <div class="danhang mr5">
           <div style="color: red;">
@@ -14,7 +14,7 @@
           </div>
           <div class="content mb">
             <label>Tên sản phẩm </label> <br>
-            <input type="text" name="ten_sp" placeholder="Nhập tên sản phẩm" required>
+            <input type="text" name="name_pro" placeholder="Nhập tên sản phẩm" required>
           </div>
           <div class="content mb">
             <label>Đơn giá</label> <br>
@@ -45,14 +45,22 @@
           </div>
           <div class="content mb">
             <label>Số lượt xem</label> <br>
+<<<<<<< HEAD:views/admin/sanpham/add.php
             <input type="number" name="view" value="0" disabled placeholder="0">
+=======
+            <input type="number" name="view" disabled placeholder="0">
+>>>>>>> 128849ba35a81e740625ad88b3e02274b49c551b:views/admin/product/add.php
           </div>
         </div>
       </div>
 
       <div class="content mb">
         <label>Mô tả</label> <br>
+<<<<<<< HEAD:views/admin/sanpham/add.php
         <textarea name="description" placeholder="Nhập mô tả" required></textarea>
+=======
+        <textarea name="describe" placeholder="Nhập mô tả" required></textarea>
+>>>>>>> 128849ba35a81e740625ad88b3e02274b49c551b:views/admin/product/add.php
       </div>
 
       <div class="content mb">

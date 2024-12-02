@@ -5,14 +5,14 @@ class ProductController
     public function list()
     {
         $products = (new Product)->all();
-        view("admin/sanpham/list", ['products' => $products]);
+        view("admin/product/list", ['products' => $products]);
     }
 
 
     public function add()
     {
         $categories = (new Category)->all();
-        view("admin/sanpham/add", ['categories' => $categories]);
+        view("admin/product/add", ['categories' => $categories]);
     }
 
     public function store()
@@ -25,7 +25,7 @@ class ProductController
             move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
             $data['image'] = $target_file;
         }
-
+        // var_dump($data);
         (new Product)->insert($data);
         $_SESSION['message'] = "Thêm sản phẩm thành công";
         header('location: index.php?ctl=add-product');
@@ -61,7 +61,7 @@ class ProductController
         $pro_id = $_GET['pro_id'];
         $product = (new Product)->findOne($pro_id);
         $categories = (new Category)->all();
-        view("admin/sanpham/edit", [
+        view("admin/product/edit", [
             'product' => $product,
             'categories' => $categories,
             'message' => $message ?? ''

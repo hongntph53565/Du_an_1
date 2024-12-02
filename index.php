@@ -1,17 +1,21 @@
 <?php
 session_start();
 
-
 //commons
+
 require_once "commons/env.php";
 require_once "commons/function.php";
+
 //models
+
 require_once "models/Category.php";
 require_once "models/Product.php";
 require_once "models/Account.php";
 require_once "models/Comment.php";
 require_once "models/Cart.php";
+
 //controller
+
 require_once "controllers/admin/AdminController.php";
 require_once "controllers/admin/CategoryController.php";
 require_once "controllers/admin/ProductController.php";
@@ -85,7 +89,7 @@ $ctl = $_GET['ctl'] ?? "";
 match ($ctl) {
     //admin
     'admin' => (new AdminController)->trangchu(),
-    
+
     'add-product' => (new ProductController)->add(),
     'list-product' => (new ProductController)->list(),
     'store-product' => (new ProductController)->store(),
@@ -114,9 +118,7 @@ match ($ctl) {
 
     'list-comment' => (new CommentController)->list(),
     'delete-comment' => (new CommentController)->delete(),
-
-    'donhang' => (new AdminController)->donhang(),
-    //client
+    // //client
     '' => (new HomeController)->index(),
     
     'cart' => (new HomeController)->giohang(),
