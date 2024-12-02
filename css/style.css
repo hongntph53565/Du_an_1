@@ -1134,3 +1134,49 @@ del {
 .checkout-button:hover {
   background-color: #d11f17;
 }
+/* Thông báo giỏ hàng */
+.notification {
+  display: none; /* Ẩn mặc định */
+  position: absolute;
+  top: 50px; /* Điều chỉnh vị trí dưới giỏ hàng */
+  right: 0;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hình ảnh sản phẩm */
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Nội dung thông báo */
+.notification-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Nút "Xem giỏ hàng" */
+.view-cart-btn {
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view-cart-btn:hover {
+  background-color: #f0f0f0;
+}

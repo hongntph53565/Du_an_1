@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 //commons
 require_once "commons/env.php";
 require_once "commons/function.php";
@@ -8,19 +10,74 @@ require_once "models/Category.php";
 require_once "models/Product.php";
 require_once "models/Account.php";
 require_once "models/Comment.php";
+require_once "models/Cart.php";
 //controller
 require_once "controllers/admin/AdminController.php";
 require_once "controllers/admin/CategoryController.php";
 require_once "controllers/admin/ProductController.php";
 require_once "controllers/admin/AccountController.php";
 require_once "controllers/admin/CommentController.php";
+require_once "controllers/admin/CartController.php";
 
 require_once "controllers/user/HomeController.php";
 require_once "controllers/user/AuthController.php";
 require_once "controllers/user/UserCategoryController.php";
 
 
+// --------------------------Them---------------------------
+if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart') {
+    include_once "models/Cart.php"; // Đảm bảo bạn có file model này
 
+    $cart = new Cart();
+
+    // Lấy dữ liệu từ form
+    $pro_id = $_POST['pro_id'] ?? null; // Mã sản phẩm từ form
+    $quantity = 1; // Số lượng mặc định
+
+    // Lấy `acc_id` từ session
+    $acc_id = $_SESSION['user']['acc_id'] ?? null;
+
+    // Kiểm tra điều kiện
+    if (!$acc_id) {
+        echo "<script>alert('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');</script>";
+        header("Location: index.php?ctl=login");
+        exit;
+    }
+
+    if ($pro_id) { // Sửa thành $pro_id
+        try {
+            // Gọi phương thức thêm sản phẩm vào giỏ hàng
+            $cart->addItemToCart($acc_id, $pro_id, $quantity);
+
+            // Chuyển hướng về giỏ hàng
+            header("Location: index.php?ctl=cart");
+            exit;
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    } else {
+ 
+    }
+}
+// ------------------------ Xoa----------------------------
+if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart-remove') {
+    include_once "models/Cart.php";
+
+    $cart = new Cart();
+    $cart_id = $_POST['cart_id'] ?? null;
+
+    if ($cart_id) {
+        try {
+            $cart->removeFromCart($cart_id);
+            header("Location: index.php?ctl=cart");
+            exit;
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    } else {
+    
+    }
+}
 
 
 $ctl = $_GET['ctl'] ?? "";
@@ -44,10 +101,12 @@ match ($ctl) {
     'delete-categories' => (new CategoryController)->delete(),
     'edit-categories' => (new CategoryController)->edit(),
 
-    'dangky' => (new AuthController)->register(),
-    'dangnhap' => (new AuthController)->login(),
+    'register' => (new AuthController)->register(),
+    'login' => (new AuthController)->login(),
     'myaccount' => (new AuthController)->myaccount(),
+    'logout' => (new AuthController)->logout(),
 
+    'edit-account' => (new AccountController)->edit(),
     'add-account' => (new AccountController)->add(),
     'list-account' => (new AccountController)->list(),
     'delete-account' => (new AccountController)->delete(),
@@ -63,7 +122,6 @@ match ($ctl) {
     'cart' => (new HomeController)->giohang(),
     
  'product' => (new UserCategoryController)->list(),
- 'cart' => (new UserCategoryController)->list(),
  'detail' => (new UserCategoryController)->detail(),
     
     default => view('404'),

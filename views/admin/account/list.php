@@ -30,6 +30,7 @@
                         <th><?= $acc['address'] ?></th>
                         <th><?= $acc['cre_date'] ?></th>
                         <th><?= $acc['role'] ?></th>
+                        <th> <a href="index.php?ctl=edit-account&acc_id=<?= $acc['acc_id']; ?>" class="crud">Sửa ( Phân Quyền)</a><br><br></th>
                         <th><a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="index.php?ctl=delete-account&acc_id=<?= $acc['acc_id']?>"><button type="button" class="btn btn-outline-danger">Xóa</button></a></th>
                     </tr>
                 <?php endforeach ?>

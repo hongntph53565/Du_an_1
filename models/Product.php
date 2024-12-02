@@ -60,6 +60,12 @@ class Product
         $stmt->execute(['cate_id' => $cate_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function findProductById($pro_id) {
+        $sql = "SELECT * FROM product WHERE pro_id = :pro_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':pro_id' => $pro_id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Nếu sản phẩm tồn tại, trả về thông tin sản phẩm
+    }
   
    
 }

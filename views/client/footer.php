@@ -103,6 +103,25 @@
         </div>
     </div>
 
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cartNotification = document.getElementById('cart-notification');
+  const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+  // Hiển thị thông báo khi thêm vào giỏ hàng
+  addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+          cartNotification.style.display = 'flex'; // Hiển thị thông báo
+
+          // Tự động ẩn sau 3 giây
+          setTimeout(() => {
+              cartNotification.style.display = 'none';
+          }, 3000);
+      });
+  });
+});
+
+    </script>
 
 </body>
 

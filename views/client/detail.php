@@ -2,7 +2,7 @@
 <div id="detail">
     <div id="main-detail">
         <div class="images">
-            <img style="width: 430px;height: 600px; padding:20px;  " src="<?=$productDetails['image']?>" alt="">
+            <img style="width: 470px;height: 600px; padding:20px;  " src="<?=$productDetails['image']?>" alt="">
         </div>
         <div class="product-detail">
             <div class="product-title"> <?=$productDetails['ten_sp']?>  </div>
@@ -17,7 +17,13 @@
                 <span>M</span>
                 <span>L</span>
             </div>
-            <button class="product-button">Thêm vào giỏ hàng</button>
+            <form action="index.php?ctl=cart" method="post">
+    <input type="hidden" name="pro_id" value="<?= $productDetails['pro_id'] ?>">
+    <button type="submit" class="product-button">Thêm vào giỏ hàng</button>
+    
+</form>
+
+
             <hr>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
