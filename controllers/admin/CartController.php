@@ -25,12 +25,20 @@ public function updateQuantity($cart_id, $quantity) {
     exit();
 }
 
-// Xóa sản phẩm khỏi giỏ hàng
+    // Xóa tất cả sản phẩm trong giỏ hàng của người dùng
+    public function clearCart($acc_id) {
+        $sql = "DELETE FROM cart WHERE acc_id = :acc_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':acc_id', $acc_id);
+        $stmt->execute();
+        
+    }
 public function removeFromCart($cart_id) {
     $cartModel = new Cart();
     $cartModel->removeFromCart($cart_id);
     header("Location: index.php?ctl=cart"); // Chuyển hướng về giỏ hàng sau khi xóa
     exit();
 }
+
 }
 ?>

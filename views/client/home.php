@@ -51,18 +51,33 @@
     <div class="products">
         <h4>Sản phẩm mới</h4>
         <div class="product">
-            <a href="index.php?ctl=newproduct-nu"><img src="images/nu_spmoi-04Oct.webp" alt=""></a>
-            <a href="index.php?ctl=newproduct-nam"><img src="images/nam_spmoi-04Oct.webp" alt=""></a>
-            <a href="index.php?ctl=newproduct-girl"><img src="images/girl_spmoi-04Oct.webp" alt=""></a>
-            <a href="index.php?ctl=newproduct-boy"><img src="images/boy_spmoi-04Oct.webp" alt=""></a>
+            <a href="index.php?ctl=product&parent_id=&cate_id=2"><img src="images/nu_spmoi-04Oct.webp" alt=""></a>
+            <a href="index.php?ctl=product&parent_id=&cate_id=1"><img src="images/nam_spmoi-04Oct.webp" alt=""></a>
+            <a href="index.php?ctl=product&parent_id=&cate_id=3"><img src="images/girl_spmoi-04Oct.webp" alt=""></a>
+            <a href="index.php?ctl=product&parent_id=&cate_id=4"><img src="images/boy_spmoi-04Oct.webp" alt=""></a>
         </div>
         <a href=""><img src="images/1.MacNha.webp" alt=""></a>
-        <div class="product">
-            <a href=""><img src="images/nu_spmoi-04Oct.webp" alt=""></a>
-            <a href=""><img src="images/nam_spmoi-04Oct.webp" alt=""></a>
-            <a href=""><img src="images/girl_spmoi-04Oct.webp" alt=""></a>
-            <a href=""><img src="images/boy_spmoi-04Oct.webp" alt=""></a>
-        </div>
+        <!-- <div class="product">
+            
+           <?php foreach ($product as $pro): ?>
+            <a href="index.php?ctl=detail&pro_id=<?= $pro['pro_id'] ?>">
+            <div >
+                <img style="" src="<?= $pro['image'] ?>" alt="<?= $pro['ten_sp'] ?>">
+                <div ><?= $pro['ten_sp'] ?></div>
+                <div class="item-price"><?= number_format($pro['price'], 0, ',', '.') ?> VND</div>
+                <div class="sale">
+                    <del><?= number_format($pro['price'], 0, ',', '.'); ?> VND</del>
+                    <p style="color:red; font-weight:bold;">-30%</p>
+                </div>
+            </div>
+            </a>
+            </div>
+             <?php endforeach ?> 
+
+
+           
+        </div><br><br> -->
+
         <a href=""><img src="images/ni.webp" alt=""></a>
         <div class="product">
             <a href=""><img src="images/nu_spmoi-04Oct.webp" alt=""></a>

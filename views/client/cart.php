@@ -46,12 +46,18 @@
             </div>
             <div class="subtotal">
                 <span>Tạm tính</span>
-                <span class="price"><?= number_format($total, 0, ',', '.') ?>đ</span>
+                <span class="price"><?= number_format($total ?? 0, 0, ',', '.') ?>đ</span>
+
             </div>
             <div class="savings">
-                <span class="save-amount">(Tiết kiệm <?= number_format($total * 0.1, 0, ',', '.') ?> đ)</span>
+                <span class="save-amount">(Tiết kiệm <?= number_format($total * 0.3, 0, ',', '.') ?> đ)</span>
             </div>
-            <button class="checkout-button">Thanh toán</button>
+            <form action="index.php?ctl=checkout" method="post">
+  
+    <button  class="checkout-button">Thanh toán</button>
+    
+</form>
+          
         </div>
     </div>
 </div>

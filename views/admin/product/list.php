@@ -26,13 +26,13 @@
                     <?php foreach ($products as $pro): ?>
                         <tr>
                             <td><?= $pro['pro_id']; ?></td>
-                            <td><?= $pro['name_pro']; ?></td>
+                            <td><?= $pro['ten_sp']; ?></td>
                             <td><?= number_format($pro['price'], 0, ',', '.'); ?> VND
                             </td>
-                            <td><img src="<?= $pro['image']; ?>" alt="<?= $pro['name_pro']; ?>" width="100"></td>
+                            <td><img src="<?= $pro['image']; ?>" alt="<?= $pro['ten_sp']; ?>" width="100"></td>
                             <td><?= $pro['quantity']; ?></td>
                             <td><?= $pro['sale']; ?></td>
-                            <td><?= $pro['describe']; ?></td>
+                            <td><?= $pro['description']; ?></td>
                             <td><?= $pro['cate_id']; ?></td>
                             <td>
                                 <a href="index.php?ctl=edit-product&pro_id=<?= $pro['pro_id']; ?>" class="crud">Sửa</a><br><br>

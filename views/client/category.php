@@ -89,9 +89,9 @@
                 <a href="index.php?ctl=detail&pro_id=<?= $pro['pro_id'] ?>">
                     <img src="<?= $pro['image'] ?>" alt="">
                     <div class="item-title"><?= $pro['ten_sp'] ?></div>
-                    <div class="item-price"><?= number_format($pro['price'], 0, ',', '.'); ?> VND</div>
+                    <div class="item-price"><?= $pro['sale'] ?></div>
                     <div class="sale">
-                        <del><?= $pro['sale'] ?></del>
+                        <del><?= number_format($pro['price'], 0, ',', '.'); ?> VND</del>
                         <p style="color:red; font-weight:bold;">-30%</p>
                     </div>
                 </a>

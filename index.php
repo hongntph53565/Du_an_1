@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 //commons
 
 require_once "commons/env.php";
@@ -13,6 +14,9 @@ require_once "models/Product.php";
 require_once "models/Account.php";
 require_once "models/Comment.php";
 require_once "models/Cart.php";
+require_once "models/Order.php";
+
+
 
 //controller
 
@@ -22,6 +26,9 @@ require_once "controllers/admin/ProductController.php";
 require_once "controllers/admin/AccountController.php";
 require_once "controllers/admin/CommentController.php";
 require_once "controllers/admin/CartController.php";
+require_once "controllers/admin/OrderController.php";
+
+
 
 require_once "controllers/user/HomeController.php";
 require_once "controllers/user/AuthController.php";
@@ -31,6 +38,7 @@ require_once "controllers/user/UserCategoryController.php";
 // --------------------------Them---------------------------
 if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart') {
     include_once "models/Cart.php"; // Đảm bảo bạn có file model này
+    $order_id = $_GET['order_id']?? null;
 
     $cart = new Cart();
 
@@ -64,7 +72,7 @@ if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart') {
     }
 }
 // ------------------------ Xoa----------------------------
-if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart-remove') {
+if (isset($_GET['ctl']) && $_GET['ctl']) {
     include_once "models/Cart.php";
 
     $cart = new Cart();
@@ -84,7 +92,10 @@ if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart-remove') {
 }
 
 
+
+
 $ctl = $_GET['ctl'] ?? "";
+$order_id = $_GET['order_id'] ?? "";
 
 match ($ctl) {
     //admin
@@ -118,10 +129,16 @@ match ($ctl) {
 
     'list-comment' => (new CommentController)->list(),
     'delete-comment' => (new CommentController)->delete(),
+
+
+    'list-order' => (new OrderController)->getAllOrders(),
+    'update-status' => (new OrderController)->editStatus($order_id),
+    'status-update' => (new OrderController)->updateStatus(),
     // //client
     '' => (new HomeController)->index(),
-    
     'cart' => (new HomeController)->giohang(),
+    'checkout' => (new HomeController)->donhang(),
+    'success' => (new HomeController)->success(),
     
  'product' => (new UserCategoryController)->list(),
  'detail' => (new UserCategoryController)->detail(),

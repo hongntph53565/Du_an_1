@@ -13,7 +13,7 @@
           </div>
           <div class="content mb">
             <label>Tên sản phẩm </label> <br>
-            <input type="text" name="name_pro" value="<?= $product['name_pro']; ?>" required>
+            <input type="text" name="ten_sp" value="<?= $product['ten_sp']; ?>" required>
           </div>
           <div class="content mb">
             <label>Đơn giá</label> <br>
@@ -21,11 +21,7 @@
           </div>
           <div class="content mb">
             <label>Hình ảnh hiện tại</label> <br>
-<<<<<<< HEAD:views/admin/sanpham/edit.php
             <img src="<?= $product['image']; ?>" alt="Hình sản phẩm" width="100">
-=======
-            <img src="<?= $product['image']; ?>" alt="<?= $product['name_pro']; ?>" width="80">
->>>>>>> 128849ba35a81e740625ad88b3e02274b49c551b:views/admin/product/edit.php
           </div>
           <div class="content mb">
             <label>Hình ảnh mới (nếu có)</label> <br>

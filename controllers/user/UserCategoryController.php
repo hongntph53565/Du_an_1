@@ -15,6 +15,35 @@ class UserCategoryController
     $product = (new Product)->getProductInCategory($cate_id);
     return view("client/category", compact('getChildrenByParent', 'categories', 'product', 'getParentCategory', 'parent_id'));
 }
+public function listHome() {    
+    // Đặt cate_id cố định là 1
+    $cate_id = 1;
+
+    // Lấy danh mục cha
+    $getParentCategory = (new Category)->getParentCategory();
+
+    // Lấy các danh mục con của danh mục hiện tại
+    $getChildrenByParent = (new Category)->getChildrenByParent($cate_id);
+
+    // Nếu không tìm thấy danh mục con, lấy danh mục con của danh mục cha
+    if (empty($getChildrenByParent)) {
+        $getChildrenByParent = (new Category)->getChildrenByParent($this->getParentIdByCateId($cate_id));
+    }
+
+    // Lấy danh sách danh mục cha
+    $categories = (new Category)->getParentCategory();
+
+    // Lấy thông tin danh mục cha của cate_id hiện tại
+    $parent_id = (new Category)->findOne($cate_id);
+
+    // Lấy danh sách sản phẩm theo cate_id
+    $product = (new Product)->getProductInCategory($cate_id);
+    
+    // Trả về view với dữ liệu
+    return view("client/home", compact('getChildrenByParent', 'categories', 'product', 'getParentCategory', 'parent_id'));
+}
+
+
 
 private function getParentIdByCateId($cate_id)
 {
@@ -24,16 +53,15 @@ private function getParentIdByCateId($cate_id)
 
 public function detail()
 {
-    // Lấy ID danh mục và sản phẩm từ URL
     if (!isset($_GET['pro_id']) || empty($_GET['pro_id'])) {
         echo "ID sản phẩm không hợp lệ.";
         return;
     }
 
-    $cate_id = $_GET['cate_id'] ?? null; // Có thể null nếu không được truyền
-    $pro_id = intval($_GET['pro_id']);  // ID sản phẩm
+    $cate_id = $_GET['cate_id'] ?? null; 
+    $pro_id = intval($_GET['pro_id']);  
 
-    // Lấy danh sách danh mục cha và con
+
     $getParentCategory = (new Category)->getParentCategory();
     $getChildrenByParent = (new Category)->getChildrenByParent($cate_id);
     if (empty($getChildrenByParent)) {
@@ -59,6 +87,7 @@ public function detail()
         'parent_id'
     ));
 }
+
 
 
     

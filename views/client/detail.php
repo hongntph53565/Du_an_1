@@ -11,12 +11,13 @@
             <div class="product-price"><?= number_format($productDetails['sale'], 0, ',', '.'); ?> VND</div>
             <div class="product-sale"><del><?= number_format($productDetails['price'], 0, ',', '.'); ?> VND</del>-20%</div>
             <div class="product-size">
-                <p>Kích cỡ:</p>
-                <span>XS</span>
-                <span>S</span>
-                <span>M</span>
-                <span>L</span>
-            </div>
+  <p>Kích cỡ:</p>
+  <span class="size-option">XS</span>
+  <span class="size-option">S</span>
+  <span class="size-option">M</span>
+  <span class="size-option">L</span>
+</div>
+
             <form action="index.php?ctl=cart" method="post">
     <input type="hidden" name="pro_id" value="<?= $productDetails['pro_id'] ?>">
     <button type="submit" class="product-button">Thêm vào giỏ hàng</button>
@@ -113,4 +114,5 @@
         </div>
     </div>
 </div>
+<script src="js/main.js"></script>
 <?php include_once "views/client/footer.php" ?>

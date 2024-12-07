@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 24, 2024 lúc 02:19 AM
--- Phiên bản máy phục vụ: 8.0.30
--- Phiên bản PHP: 8.1.10
+-- Host: localhost:3306
+-- Generation Time: Dec 02, 2024 at 08:46 AM
+-- Server version: 8.2.0
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `duan1_2024`
+-- Database: `duan1_2024`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `account`
+-- Table structure for table `account`
 --
 
 CREATE TABLE `account` (
@@ -36,34 +36,50 @@ CREATE TABLE `account` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `address` varchar(200) NOT NULL,
-  `birthday` date NOT NULL,
-  `cre_date` date NOT NULL,
-  `role` tinyint NOT NULL
+  `birthday` date DEFAULT NULL,
+  `cre_date` date DEFAULT NULL,
+  `role` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `account`
+-- Dumping data for table `account`
 --
 
 INSERT INTO `account` (`acc_id`, `username`, `password`, `fullname`, `image`, `email`, `phone`, `address`, `birthday`, `cre_date`, `role`) VALUES
-(1, 'admin', '1', 'Nguyễn Thị Hồng', 'admin.jpg', 'hongt@gmail.com', '0951666738', 'Hà Nội', '2024-11-07', '2024-11-17', 1);
+(1, 'admin', '1', 'Nguyễn Thị Hồng', 'admin.jpg', 'hongt@gmail.com', '0951666738', 'Hà Nội', '2024-11-07', '2024-11-17', 1),
+(2, 'hungduypham', '12345678', 'Phạm Duy Hưng', 'images/me.jpg', 'hungpdph53540@gmail.com', '0378450452', 'Hà Nội', '2005-12-10', NULL, 0),
+(3, 'root', 'Hung1810', 'Phạm Duy Hưng', '', 'hungpdph53540@gmail.com', '0378450452', 'Hà Nội', '2005-10-18', NULL, 0),
+(4, 'Giahungluxury', 'Hung1810', 'Phạm Duy Hưng', 'images/5f1882c88c8565db3c94.jpg', 'hungpdph53540@gmail.com', '0378450452', 'Hưng Yên', '2005-10-18', NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
+  `cart_id` int NOT NULL,
   `acc_id` int NOT NULL,
-  `order_id` int NOT NULL,
-  `quantity` int NOT NULL
+  `pro_id` int NOT NULL,
+  `quantity` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `acc_id`, `pro_id`, `quantity`, `created_at`) VALUES
+(5, 2, 38, 1, '2024-12-01 11:33:19'),
+(6, 2, 34, 1, '2024-12-01 11:37:08'),
+(7, 2, 39, 1, '2024-12-01 11:43:07'),
+(11, 2, 33, 2, '2024-12-01 11:58:38'),
+(13, 2, 6, 2, '2024-12-01 12:21:42');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -73,7 +89,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`cate_id`, `cate_name`, `parent_id`) VALUES
@@ -85,7 +101,6 @@ INSERT INTO `category` (`cate_id`, `cate_name`, `parent_id`) VALUES
 (6, 'Áo khoác gió', 1),
 (7, 'Áo nỉ', 1),
 (8, 'Áo len', 1),
-(9, 'Bộ ngủ', 1),
 (10, 'Quần jean', 1),
 (11, 'Áo polo', 1),
 (12, 'Áo phông', 2),
@@ -115,7 +130,7 @@ INSERT INTO `category` (`cate_id`, `cate_name`, `parent_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -129,7 +144,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `detail_order`
+-- Table structure for table `detail_order`
 --
 
 CREATE TABLE `detail_order` (
@@ -143,7 +158,7 @@ CREATE TABLE `detail_order` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -157,7 +172,7 @@ CREATE TABLE `order` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -169,99 +184,179 @@ CREATE TABLE `product` (
   `sale` int NOT NULL,
   `image` varchar(200) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `view` int NOT NULL
+  `view` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`pro_id`, `cate_id`, `ten_sp`, `price`, `quantity`, `sale`, `image`, `description`, `view`) VALUES
+(6, 1, 'Áo nỉ có mũ ', 489000, 1000, 399000, 'uploads/Nam1.webp', 'qưeqwqwe', NULL),
+(7, 5, 'Áo Phoong Nam', 489000, 1000, 399000, 'uploads/8ts24s019-se026-l-1-u.webp', 'sajdasjlldasdlasdasd', NULL),
+(8, 8, 'Áo Len Nam', 489000, 1000, 399000, 'uploads/6te24w010-cr147-l-1-u.webp', 'asljdljasdasa', NULL),
+(9, 8, 'Áo Len Cổ Nam', 349000, 1000, 399000, 'uploads/6te24w013-sw010-l-1-u.webp', 'Áo Len Cổ Nam', NULL),
+(10, 8, 'Áo Len Nam', 349000, 1000, 419000, 'uploads/8te24w002-sa800-thumb.webp', 'Áo Len Nam', NULL),
+(11, 8, 'Áo Len Nam', 349000, 1000, 419000, 'uploads/8te23w022-sl146-xl-1-u.webp', 'Áo Len Nam', NULL),
+(12, 8, 'Áo len lông cừu cao cấp nam cổ tròn dáng suông', 799000, 1000, 659000, 'uploads/8te23w011-se424-1-thumb.webp', 'Áo len nam dài tay, cổ tròn, dáng regular không quá ôm cũng không quá rộng tạo cho người mặc thấy thoải mái, vừa vặn', NULL),
+(13, 8, 'Áo len nam cổ tròn dáng suông', 799000, 1000, 659000, 'uploads/8te23w002-sb166-5-a.webp', 'Áo len nam cổ tròn dáng suông', NULL),
+(14, 5, 'Áo Phông Nam', 479000, 1000, 419000, 'uploads/8ts24c001-sb001-xl-1-u.webp', 'Áo Phông Nam', NULL),
+(15, 5, 'Áo Phông Nam', 479000, 1000, 419000, 'uploads/8ts24c001-sw012-thumb.webp', 'Áo Phông Nam', NULL),
+(16, 5, 'Áo Phông Nam Họa Tiết USA', 479000, 1000, 419000, 'uploads/8ts24c005-sb001-xl-1-u.webp', 'Áo Phông Nam', NULL),
+(17, 5, 'Áo Phông Nam ', 479000, 1000, 419000, 'uploads/8ts24w003-fk111-xl-1-u.webp', 'Áo Phông Nam', NULL),
+(18, 5, 'Áo Phông Nam Họa Tiết Cổ', 479000, 1000, 419000, 'uploads/8ts24w004-sb001-xl-1-u.webp', 'Áo Phông Nam', NULL),
+(19, 6, 'Áo Khoác Gió Nam', 599000, 1000, 489000, 'uploads/8ot24w001-sb757-thumb.webp', 'Áo Khoác Gió Nam', NULL),
+(20, 6, 'Áo Khoác Gió Nam', 599000, 1000, 489000, 'uploads/8ot24w003-sk010-thumb.webp', 'Áo Khoác Gió Nam', NULL),
+(21, 6, 'Áo Khoác Gió Nam', 599000, 1000, 489000, 'uploads/8ot24w034-sl291-xl-1-u.webp', 'Áo Khoác Gió Nam', NULL),
+(22, 7, 'Áo Nỉ Nam', 689000, 1000, 569000, 'uploads/5tw24w003-se528-xl-1-u.webp', 'Áo Nỉ Nam', NULL),
+(23, 7, 'Áo Nỉ Nam', 689000, 1000, 569000, 'uploads/8te23w022-sl146-xl-1-u.webp', 'Áo Nỉ Nam', NULL),
+(24, 7, 'Áo nỉ nam in hình Avenger', 699000, 1000, 589000, 'uploads/8tw24c002-sw011-thumb.webp', 'Áo nỉ nam in hình Avenger', NULL),
+(25, 10, 'Quần jeans nam phom relaxed', 699000, 1000, 639000, 'uploads/8bj24w004-sj891-31-1-u.webp', 'Quần jeans nam phom relaxed', NULL),
+(26, 10, 'Quần jeans nam phom straight', 699000, 1000, 639000, 'uploads/Jean1.webp', 'Quần jeans nam phom straight', NULL),
+(27, 10, 'Quần jeans nam cotton dáng suông', 699000, 1000, 639000, 'uploads/8bj24a003-sj870-thumb.webp', 'Quần jeans nam cotton dáng suông', NULL),
+(28, 11, 'Áo polo active nam hình in phản quang', 399000, 1000, 329000, 'uploads/8tp24s012-sa903-l-1-u.webp', 'Áo polo active nam hình in phản quang', NULL),
+(29, 11, 'Áo polo nam cotton USA dáng rộng', 399000, 1000, 329000, 'uploads/8tp24w001-sb001-l-1-u.webp', 'Áo polo nam cotton USA dáng rộng', NULL),
+(30, 11, 'Áo len polo nam cộc tay', 479000, 1000, 419000, 'uploads/8te24w012-se413-thumb.webp', 'Áo len polo nam cộc tay', NULL),
+(31, 1, 'Áo Hoodie Unisex (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w001-sb335-m-1-u.webp', 'Áo Hoodie Unisex (Nam & Nữ)', NULL),
+(32, 1, 'Áo Hoodie Unisex (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w001-sg646-m-1-u.webp', 'Áo Hoodie Unisex (Nam & Nữ)', NULL),
+(33, 1, 'Áo Hoodie Unisex (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w001-sk010-m-1-u.webp', 'Áo Hoodie Unisex (Nam & Nữ)', NULL),
+(34, 1, 'Áo Len (Nam & Nữ)', 690000, 1000, 590000, 'uploads/6te24w010-cr147-l-1-u.webp', 'Áo Len (Nam & Nữ)', NULL),
+(35, 1, 'Áo Nỉ (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w003-se528-xl-1-u.webp', 'Áo Nỉ (Nam & Nữ)', NULL),
+(36, 1, 'Áo Nỉ Cổ Tròn (Nam & Nữ)', 690000, 1000, 590000, 'uploads/8te23w022-sl146-xl-1-u.webp', 'Áo Nỉ Cổ Tròn (Nam & Nữ)', NULL),
+(37, 1, 'Áo Nỉ Cổ Tròn (Nam & Nữ)', 690000, 1000, 590000, 'uploads/6te24w013-sw010-l-1-u.webp', 'Áo Nỉ Cổ Tròn (Nam & Nữ)', NULL),
+(38, 2, 'Áo Nỉ Cổ Tròn (Nam & Nữ)', 690000, 1000, 590000, 'uploads/6te24w013-sw010-l-1-u.webp', 'Áo Nỉ Cổ Tròn (Nam & Nữ)', NULL),
+(39, 2, 'Áo Nỉ Cổ Tròn (Nam & Nữ)', 690000, 1000, 590000, 'uploads/8te23w022-sl146-xl-1-u.webp', 'Áo Nỉ Cổ Tròn (Nam & Nữ)', NULL),
+(40, 2, 'Áo Nỉ Cổ Tròn (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w003-se528-xl-1-u.webp', 'Áo Nỉ Cổ Tròn (Nam & Nữ)', NULL),
+(41, 2, 'Áo Hoodie Unisex (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w001-sg646-m-1-u.webp', 'Áo Hoodie Unisex (Nam & Nữ)', NULL),
+(42, 2, 'Áo Hoodie Unisex (Nam & Nữ)', 690000, 1000, 590000, 'uploads/5tw24w001-sb335-m-1-u.webp', 'Áo Hoodie Unisex (Nam & Nữ)', NULL),
+(43, 2, 'Áo Hoodie Nữ ', 690000, 1000, 590000, 'uploads/5tw24w001-sm176-m-1-u.webp', 'Áo Hoodie Nữ ', NULL),
+(44, 2, 'Áo Nỉ Nữ Cổ Tròn ', 690000, 1000, 590000, 'uploads/5tw24w003-se528-2a.webp', 'Áo Nỉ Nữ Cổ Tròn ', NULL),
+(45, 14, 'Áo Nỉ Nữ Cổ Tròn ', 690000, 1000, 590000, 'uploads/5tw24w003-se528-2a.webp', 'Áo Nỉ Nữ Cổ Tròn ', NULL),
+(46, 2, 'Áo Nỉ Nữ Cổ Tròn ', 690000, 1000, 590000, 'uploads/5tw24w003-sk389-2a.webp', 'Áo Nỉ Nữ Cổ Tròn ', NULL),
+(47, 14, 'Áo Nỉ Nữ Cổ Tròn ', 690000, 1000, 590000, 'uploads/5tw24w003-sk389-2a.webp', 'Áo Nỉ Nữ Cổ Tròn ', NULL),
+(48, 13, 'Áo Khoác Gió Nữ', 290000, 1000, 240000, 'uploads/6ot24w021-sb010-l-1-u.webp', 'Áo Khoác Gió Nữ', NULL),
+(49, 15, 'Áo Len Nữ', 490000, 1000, 440000, 'uploads/6te24w010-cr147-l-1-u.webp', 'Áo Len Nữ', NULL),
+(50, 2, 'Áo Len Nữ', 490000, 1000, 440000, 'uploads/6te24w010-cr147-l-1-u.webp', 'Áo Len Nữ', NULL),
+(51, 13, 'Áo khoác gió nữ hai lớp có mũ, kéo khóa', 799000, 1000, 689000, 'uploads/6ot24w002-sr021-l-1-u.webp', 'Áo khoác gió nữ hai lớp có mũ, kéo khóa', NULL);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`acc_id`);
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `acc_id` (`acc_id`),
+  ADD KEY `product_id` (`pro_id`);
+
+--
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`cate_id`),
   ADD KEY `parent_id` (`parent_id`);
 
 --
--- Chỉ mục cho bảng `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`cmt_id`);
 
 --
--- Chỉ mục cho bảng `detail_order`
+-- Indexes for table `detail_order`
 --
 ALTER TABLE `detail_order`
   ADD PRIMARY KEY (`detail_order_id`);
 
 --
--- Chỉ mục cho bảng `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`pro_id`);
+  ADD PRIMARY KEY (`pro_id`),
+  ADD KEY `lk_sanpham_danhmuc` (`cate_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `account`
+-- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `acc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `cate_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT cho bảng `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `cmt_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `detail_order`
+-- AUTO_INCREMENT for table `detail_order`
 --
 ALTER TABLE `detail_order`
   MODIFY `detail_order_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `order`
+-- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
   MODIFY `order_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pro_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pro_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `category`
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`acc_id`) REFERENCES `account` (`acc_id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`pro_id`) REFERENCES `product` (`pro_id`);
+
+--
+-- Constraints for table `category`
 --
 ALTER TABLE `category`
   ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `category` (`cate_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `lk_sanpham_danhmuc` FOREIGN KEY (`cate_id`) REFERENCES `category` (`cate_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

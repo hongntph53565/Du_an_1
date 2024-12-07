@@ -1187,4 +1187,21 @@ del {
 
 .view-cart-btn:hover {
   background-color: #f0f0f0;
+
 }
+.size-option {
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.size-option.selected {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+
+
