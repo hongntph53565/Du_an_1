@@ -2,13 +2,15 @@
 
 <div id="main">
     <p class="cart-summary">Giỏ hàng (<?= count($cartItems) ?>)</p>
-   
-    <hr style="border: none; border-top: 1px dashed #ccc; width: 100%;"> 
+
+    <hr style="border: none; border-top: 1px dashed #ccc; width: 100%;">
 
     <?php if (count($cartItems) == 0): ?>
         <p>Giỏ hàng của bạn hiện tại đang trống.</p>
     <?php else: ?>
-        <?php foreach ($cartItems as $item): ?>
+        <?php foreach ($cartItems as $item):
+            // var_dump($cartItems);
+        ?>
             <div class="item mb-4">
                 <div class="row g-0">
                     <div class="col-md-2">
@@ -23,14 +25,13 @@
                     </div>
                     <div class="col-md-2">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-outline-dark">-</button>
-                            <button type="button" class="btn btn-outline-dark"><?= $item['quantity'] ?></button>
-                            <button type="button" class="btn btn-outline-dark">+</button>
+                            <input type="number" name=" quantity[<?= $cart_id ?>] " class="form-control" value="<?= $item['quantity'] ?>" min="1">
                         </div>
                         <form action="index.php?ctl=cart-remove" method="post" style="margin-top: 10px;">
-        <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
-        <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-    </form>
+                            <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
+                            <button type="submit" class="btn btn-danger btn-sm">Cập nhật</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -53,13 +54,11 @@
                 <span class="save-amount">(Tiết kiệm <?= number_format($total * 0.3, 0, ',', '.') ?> đ)</span>
             </div>
             <form action="index.php?ctl=checkout" method="post">
-  
-    <button  class="checkout-button">Thanh toán</button>
-    
-</form>
-          
+
+                <button class="checkout-button">Thanh toán</button>
+
+            </form>
+
         </div>
     </div>
 </div>
-
-<?php include_once "views/client/footer.php" ?>

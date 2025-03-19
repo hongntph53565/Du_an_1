@@ -57,26 +57,20 @@
             <a href="index.php?ctl=product&parent_id=&cate_id=4"><img src="images/boy_spmoi-04Oct.webp" alt=""></a>
         </div>
         <a href=""><img src="images/1.MacNha.webp" alt=""></a>
-        <!-- <div class="product">
-            
-           <?php foreach ($product as $pro): ?>
-            <a href="index.php?ctl=detail&pro_id=<?= $pro['pro_id'] ?>">
-            <div >
-                <img style="" src="<?= $pro['image'] ?>" alt="<?= $pro['ten_sp'] ?>">
-                <div ><?= $pro['ten_sp'] ?></div>
-                <div class="item-price"><?= number_format($pro['price'], 0, ',', '.') ?> VND</div>
-                <div class="sale">
-                    <del><?= number_format($pro['price'], 0, ',', '.'); ?> VND</del>
-                    <p style="color:red; font-weight:bold;">-30%</p>
-                </div>
-            </div>
-            </a>
-            </div>
-             <?php endforeach ?> 
-
-
-           
-        </div><br><br> -->
+        <div class="product">
+            <?php foreach ($product as $pro): ?>
+                <a style="color: #333; text-decoration: none;" href="index.php?ctl=detail&cate_id=<?= $pro['cate_id'] ?>&pro_id=<?= $pro['pro_id'] ?>">
+                    <div>
+                        <img style="" src="<?= $pro['image'] ?>" alt="<?= $pro['ten_sp'] ?>">
+                        <div class="item-text"><?= $pro['ten_sp'] ?></div>
+                        <div class="item-price"><?= number_format($pro['sale'], 0, ',', '.') ?> VND</div>
+                        <div class="sale">
+                            <del><?= number_format($pro['price'], 0, ',', '.'); ?> VND</del>
+                        </div>
+                    </div>
+                </a>
+            <?php endforeach ?>
+        </div><br><br>
 
         <a href=""><img src="images/ni.webp" alt=""></a>
         <div class="product">

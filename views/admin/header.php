@@ -25,14 +25,7 @@
             <li><a href="index.php?ctl=list-account">Tài khoản</a></li>
             <li><a href="index.php?ctl=list-order">Đơn hàng</a></li>
             <li><a href="index.php?ctl=list-comment">Bình luận</a></li>
-            <li><a href="index.php?ctl=">Thoát</a></li>
-            <!-- <li><a href="<?= ADMIN_URL ?>">Trang chủ</a></li>
-            <li><a href="<?= ADMIN_URL . '?ctl=add-categories' ?>">Danh mục</a></li>
-            <li><a href="<?= ADMIN_URL . '?ctl=add-product'?>">Hàng hóa</a></li>
-            <li><a href="<?= ADMIN_URL . '?ctl=list-account'?>">Khách hàng</a></li>
-            <li><a href="<?= ADMIN_URL . '?ctl=donhang'?>">Đơn hàng</a></li>
-            <li><a href="<?= ADMIN_URL . '?ctl=list-comment'?>">Bình luận</a></li>
-            <li><a href="#">Thoát</a></li> -->
+            <li><a href="index.php?ctl=myaccount">Thoát</a></li>
           </ul>
         </div>
       </div>

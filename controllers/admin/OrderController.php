@@ -1,18 +1,27 @@
 <?php
 
-class OrderController {
-    
+class OrderController
+{
+
+
     private $orderModel;
 
     // Constructor để khởi tạo các mô hình cần thiết
-    public function __construct() {
+    public function __construct()
+    {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 1) {
+            // Nếu không phải admin, chuyển hướng về trang đăng nhập hoặc trang lỗi
+            header("location: index.php?ctl=login");
+            die();
+        }
         // Tạo đối tượng OrderModel
         $this->orderModel = new Order();
         // Khởi tạo cartModel nếu có
     }
 
     // Tạo đơn hàng
-    public function createOrder($acc_id, $status, $other_addr, $pay, $cartItems) {
+    public function createOrder($acc_id, $status, $other_addr, $pay, $cartItems)
+    {
         try {
             if (empty($cartItems)) {
                 throw new Exception("Giỏ hàng rỗng, không thể tạo đơn hàng.");
@@ -75,37 +84,41 @@ class OrderController {
     }
 
     // Lấy chi tiết đơn hàng
-    public function getOrderDetails($orderId) {
+    public function getOrderDetails($orderId)
+    {
         return $this->orderModel->getOrderDetails($orderId);
     }
 
     // Lấy các sản phẩm trong đơn hàng
-    public function getOrderItems($orderId) {
+    public function getOrderItems($orderId)
+    {
         $sql = "SELECT * FROM detail_order WHERE order_id = :order_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':order_id' => $orderId]);
-        
+
         // Kiểm tra xem có dữ liệu trả về không
         $orderItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         var_dump($orderItems);  // Kiểm tra dữ liệu trả về
         return $orderItems;
     }
-    
+
 
     // Hiển thị danh sách đơn hàng
-    public function listOrders($acc_id) {
+    public function listOrders($acc_id)
+    {
         return $this->orderModel->getOrdersByAccount($acc_id);
     }
 
     // Chỉnh sửa trạng thái đơn hàng
-    public function editStatus($order_id) {
+    public function editStatus($order_id)
+    {
         if (!$order_id) {
             echo "Không tìm thấy đơn hàng!";
             exit();
         }
 
         $orderDetails = $this->orderModel->getOrderDetails($order_id);
-        
+
         if (!$orderDetails) {
             echo "Không tìm thấy chi tiết đơn hàng!";
             exit();
@@ -116,7 +129,8 @@ class OrderController {
     }
 
     // Cập nhật trạng thái đơn hàng
-    public function updateStatus() {
+    public function updateStatus()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $order_id = $_POST['order_id'];
             $status = $_POST['status'];
@@ -129,16 +143,15 @@ class OrderController {
     }
 
     // Xóa đơn hàng
-    public function deleteOrder($order_id) {
+    public function deleteOrder($order_id)
+    {
         $this->orderModel->deleteOrder($order_id);
     }
 
     // Lấy tất cả đơn hàng
     public function getAllOrders()
-     { 
-     $orders=(new Order)->getAllOrders(); 
-     view("admin/cart/list", compact('orders'));
+    {
+        $orders = (new Order)->getAllOrders();
+        view("admin/cart/list", compact('orders'));
     }
 }
-
-?>

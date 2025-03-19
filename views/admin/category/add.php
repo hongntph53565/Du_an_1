@@ -9,11 +9,14 @@
         <div style="color: red;"><?= $message ?? ""; ?></div>
         <div class="content mb">
           <label>Tên danh mục </label> <br>
-          <input type="text" name="cate_name" placeholder="nhập tên danh mục" required>
+          <input type="text" name="cate_name" placeholder="nhập tên danh mục">
+          <div style="color: red;">
+            <?= $errors['cate_name'] ?? ''; ?>
+          </div>
         </div>
 
         <label> Danh mục cha </label> <br>
-        <select name="parent_id" required>
+        <select name="parent_id">
           <option value="">Chọn</option>
           <?php foreach ($getParentCategory as $cate): ?>
             <option value="<?= $cate['cate_id']; ?>">
@@ -21,6 +24,9 @@
             </option>
           <?php endforeach; ?>
         </select>
+        <div style="color: red;">
+          <?= $errors['parent_id'] ?? ''; ?>
+        </div>
       </div>
       <div class="content mb">
         <input type="submit" value="Thêm mới">

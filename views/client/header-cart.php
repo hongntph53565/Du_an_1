@@ -43,7 +43,7 @@
                     <input type="text" placeholder="Tìm kiếm" />
                 </div>
                 <div class="icon">
-                    <a href="index.php?ctl=login">
+                    <a href="index.php?ctl=dangnhap">
                         <img src="images/taikhoan.jpg" alt="" width="20px">
                         <p>Tài khoản</p>
                     </a>

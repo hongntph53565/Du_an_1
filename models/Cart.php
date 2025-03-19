@@ -1,13 +1,16 @@
 <?php
-class Cart {
+class Cart
+{
     public $conn;
-    
-    public function __construct() {
+
+    public function __construct()
+    {
         $this->conn = connection();
     }
 
     // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-    public function findItemInCart($user_id, $pro_id) {
+    public function findItemInCart($user_id, $pro_id)
+    {
         $sql = "SELECT * FROM cart WHERE acc_id = :acc_id AND pro_id = :pro_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':acc_id' => $user_id, ':pro_id' => $pro_id]);
@@ -15,7 +18,8 @@ class Cart {
     }
 
     // Thêm sản phẩm vào giỏ hàng
-    public function addItemToCart($acc_id, $pro_id, $quantity) {
+    public function addItemToCart($acc_id, $pro_id, $quantity)
+    {
         // Kiểm tra sản phẩm đã tồn tại trong giỏ hàng chưa
         $stmt = $this->conn->prepare("SELECT * FROM cart WHERE acc_id = :acc_id AND pro_id = :pro_id");
         $stmt->execute([':acc_id' => $acc_id, ':pro_id' => $pro_id]);
@@ -34,7 +38,8 @@ class Cart {
     }
 
     // Cập nhật số lượng sản phẩm trong giỏ hàng
-    public function updateItemQuantity($user_id, $pro_id, $quantity) {
+    public function updateItemQuantity($user_id, $pro_id, $quantity)
+    {
         // Kiểm tra xem sản phẩm có tồn tại trong giỏ hàng không
         $existingItem = $this->findItemInCart($user_id, $pro_id);
 
@@ -50,7 +55,8 @@ class Cart {
     }
 
     // Lấy các sản phẩm trong giỏ hàng của người dùng
-    public function getCartItems($user_id) {
+    public function getCartItems($user_id)
+    {
         $sql = "SELECT c.cart_id, p.ten_sp, p.price, p.image, c.quantity
                 FROM cart c
                 JOIN product p ON c.pro_id = p.pro_id
@@ -61,7 +67,8 @@ class Cart {
     }
 
     // Thêm phương thức getCartTotal trong Cart.php
-    public function getCartTotal($user_id) {
+    public function getCartTotal($user_id)
+    {
         $sql = "SELECT SUM(p.price * c.quantity) AS total
                 FROM cart c
                 JOIN product p ON c.pro_id = p.pro_id
@@ -73,15 +80,16 @@ class Cart {
     }
 
     // Xóa sản phẩm khỏi giỏ hàng
-    public function clearCart($acc_id) {
+    public function clearCart($acc_id)
+    {
         $sql = "DELETE FROM cart WHERE acc_id = :acc_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':acc_id' => $acc_id]);
     }
-    public function removeFromCart($cart_id) {
+    public function removeFromCart($cart_id)
+    {
         $sql = "DELETE FROM cart WHERE cart_id = :cart_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':cart_id' => $cart_id]);
     }
 }
-?>

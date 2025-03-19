@@ -1,5 +1,13 @@
 <?php
 class AdminController{
+    public function __construct()
+    {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 1) {
+            // Nếu không phải admin, chuyển hướng về trang đăng nhập hoặc trang lỗi
+            header("location: index.php?ctl=login");
+            die();
+        }
+    }
     public function trangchu()
     {
         view("admin/home");

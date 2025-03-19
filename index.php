@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+// var_dump($_SESSION);
 //commons
 
 require_once "commons/env.php";
@@ -27,8 +27,7 @@ require_once "controllers/admin/AccountController.php";
 require_once "controllers/admin/CommentController.php";
 require_once "controllers/admin/CartController.php";
 require_once "controllers/admin/OrderController.php";
-
-
+require_once "controllers/SearchController.php";
 
 require_once "controllers/user/HomeController.php";
 require_once "controllers/user/AuthController.php";
@@ -38,7 +37,7 @@ require_once "controllers/user/UserCategoryController.php";
 // --------------------------Them---------------------------
 if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart') {
     include_once "models/Cart.php"; // Đảm bảo bạn có file model này
-    $order_id = $_GET['order_id']?? null;
+    $order_id = $_GET['order_id'] ?? null;
 
     $cart = new Cart();
 
@@ -68,7 +67,6 @@ if (isset($_GET['ctl']) && $_GET['ctl'] === 'cart') {
             echo "Lỗi: " . $e->getMessage();
         }
     } else {
- 
     }
 }
 // ------------------------ Xoa----------------------------
@@ -87,7 +85,6 @@ if (isset($_GET['ctl']) && $_GET['ctl']) {
             echo "Lỗi: " . $e->getMessage();
         }
     } else {
-    
     }
 }
 
@@ -107,9 +104,6 @@ match ($ctl) {
     'delete-product' => (new ProductController)->delete(),
     'edit-product' => (new ProductController)->edit(),
     
-   
-
-
     'list-categories' => (new CategoryController)->list(),
     'add-categories' => (new CategoryController)->add(),
     'store-categories' => (new CategoryController)->store(),
@@ -139,9 +133,13 @@ match ($ctl) {
     'cart' => (new HomeController)->giohang(),
     'checkout' => (new HomeController)->donhang(),
     'success' => (new HomeController)->success(),
-    
- 'product' => (new UserCategoryController)->list(),
- 'detail' => (new UserCategoryController)->detail(),
-    
+    'donhang' => (new HomeController)->Bill(),
+
+
+
+    'product' => (new UserCategoryController)->list(),
+    'detail' => (new UserCategoryController)->detail(),
+    'search' => (new SearchController)->search(),
+
     default => view('404'),
 };

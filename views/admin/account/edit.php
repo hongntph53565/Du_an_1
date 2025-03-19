@@ -7,58 +7,49 @@
   <div class="content form_content">
     <form action="" method="post" enctype="multipart/form-data">
       <div style="color: red;">
-        <?php echo isset($message) ? $message : ''; ?>
+        <?= isset($message) ? $message : ''; ?>
       </div>
       <?php if (!empty($message)): ?>
-    <div class="alert alert-success">
-        <?= $message ?>
-    </div>
-<?php endif; ?>
+        <div class="alert alert-success">
+          <?= $message ?>
+        </div>
+      <?php endif; ?>
       <div class="ngang">
         <div class="danhang mr5">
           <div class="content mb">
             <label> Tên đăng nhập </label> <br>
-            <input type="text" name="username" value="<?= $account['username'] ?>" placeholder="username" required>
+            <input type="text" name="username" value="<?= $account['username'] ?>" placeholder="username" readonly>
           </div>
           <div class="content mb">
             <label>Mật khẩu</label> <br>
-            <input type="password" name="password" value="<?= $account['password'] ?>" placeholder="password" required>
+            <input type="password" name="password" value="<?= $account['password'] ?>" placeholder="password" readonly>
           </div>
           <div class="content mb">
             <label>Họ và tên</label> <br>
-            <input type="text" name="fullname" value="<?= $account['fullname'] ?>" placeholder="Họ và tên" required>
+            <input type="text" name="fullname" value="<?= $account['fullname'] ?>" placeholder="Họ và tên" readonly>
           </div>
-          <div class="content mb">
-            <label>Ngày tạo</label> <br>
-            <input type="date" name="cre_date" value="<?= $account['cre_date'] ?>" required>
-          </div>
-          <div class="content mb">
-            <label>Hình ảnh</label> <br>
-            <input type="file" name="image">
-            <img src="images/<?= $account['image'] ?>" alt="Hình ảnh cũ" width="100"><br>
-          </div>
+
+
         </div>
         <div class="danhang">
           <div class="content mb">
             <label> Email</label> <br>
-            <input type="text" name="email" value="<?= $account['email'] ?>" placeholder="email" required>
+            <input type="text" name="email" value="<?= $account['email'] ?>" placeholder="email" readonly>
           </div>
           <div class="content mb">
             <label>Số điện thoại</label> <br>
-            <input type="text" name="phone" value="<?= $account['phone'] ?>" placeholder="phone" required>
+            <input type="text" name="phone" value="<?= $account['phone'] ?>" placeholder="phone" readonly>
           </div>
           <div class="content mb">
             <label>Địa chỉ</label> <br>
-            <input type="text" name="address" value="<?= $account['address'] ?>" placeholder="address" required>
+            <input type="text" name="address" value="<?= $account['address'] ?>" placeholder="address" readonly>
           </div>
-          <div class="content mb">
-            <label>Sinh nhật</label> <br>
-            <input type="date" name="birthday" value="<?= $account['birthday'] ?>" required>
-          </div>
+
           <div class="content mb">
             <label>Vai trò</label> <br>
-            <input type="number" name="role" value="<?= $account['role'] ?>" required>
+            <input type="number" name="role" value="<?= $account['role'] ?>">
           </div>
+
         </div>
       </div>
 
@@ -71,4 +62,4 @@
     </form>
   </div>
 
-<?php include_once "views/admin/footer.php" ?>
+  <?php include_once "views/admin/footer.php" ?>

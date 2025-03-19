@@ -9,10 +9,9 @@
             <div>
                 <label for="status"><strong>Trạng thái:</strong></label>
                 <select name="status" id="status" required>
-                    <option value="Chờ Xử Lý" <?php echo ($orderDetails['status'] == 'Chờ Xử Lý') ? 'selected' : ''; ?>>Chờ xử lý</option>
-                    <option value="Đang Vận Chuyển" <?php echo ($orderDetails['status'] == 'Đang Vận Chuyển') ? 'selected' : ''; ?>>Đang Vận Chuyển</option>
-                    <option value="Đã Giao Thành Công" <?php echo ($orderDetails['status'] == 'Đã Giao Thành Công') ? 'selected' : ''; ?>>Đã giao thành công</option>
-                    <option value="Đã Hủy" <?php echo ($orderDetails['status'] == 'Đã Hủy') ? 'selected' : ''; ?>>Đã hủy</option>
+                    <option value="pending" <?php echo ($orderDetails['status'] == 'Chờ Xử Lý') ? 'selected' : ''; ?>>Chờ xử lý</option>
+               
+                    <option value="cancelled" <?php echo ($orderDetails['status'] == 'Đã Hủy') ? 'selected' : ''; ?>>Hủy Đơn Hàng</option>
                 </select>
             </div>
 

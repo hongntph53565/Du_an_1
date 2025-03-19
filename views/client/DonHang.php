@@ -15,7 +15,7 @@
     <h1 style="   font-size: 22px;
     font-weight: bold;
     color: #4CAF50;
-    margin: 10px 0;">Đặt hàng thành công</h1>
+    margin: 10px 0;">Đặt hàng Đang Được Xử Lý</h1>
     <p class="thank-you" style="  font-size: 16px;
     color: #555;
     margin-bottom: 20px;">Cảm ơn bạn đã mua sắm tại Canifa.</p>
@@ -56,25 +56,13 @@
    
       </ul>
     </div>
-    <div class="buttons" style="    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;">
-      <button style="    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold; " class="btn btn-primary">Tiếp tục mua sắm</button>
-<form action="" method="GET">
-<a href="index.php?ctl=donhang">
-    <button style="padding: 10px 20px; font-size: 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;" class="btn btn-secondary">
-      Theo dõi đơn hàng
-    </button>
-  </a>
-</form>
-
-      
+    <div class="buttons" style="display: flex;justify-content: space-between;margin-top: 20px;">
+    <form method="POST" action="">
+      <button type="submit" name="cancel_order" value="<?= $orderDetails['order_id'] ?>" style=" padding: 10px 20px; font-size: 14px; border: none;border-radius: 4px;cursor: pointer;font-weight: bold; " class="btn btn-primary">Hủy đơn hàng</button>
+      </form>
     </div>
+
+ 
 </div>
 
 <?php include_once "views/client/footer.php" ?>

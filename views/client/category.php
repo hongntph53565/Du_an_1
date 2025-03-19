@@ -12,11 +12,11 @@
             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                    
-                    <?php foreach ($getChildrenByParent as $child) : ?>
+
+                        <?php foreach ($getChildrenByParent as $child) : ?>
                             <li>
                                 <a href="index.php?ctl=product&cate_id=<?= $child['cate_id'] ?> ">
-                                    
+
                                     <?= $child['cate_name'] ?>
                                 </a>
                             </li>
@@ -81,24 +81,24 @@
     </div>
 
     <div class="main">
-    <?php 
-    $check = $_GET['cate_id'] ?? ""; 
-    foreach ($product as $pro): 
-        if (!empty($check) && $pro['cate_id'] == $check): ?>
-            <div class="item">
-                <a href="index.php?ctl=detail&pro_id=<?= $pro['pro_id'] ?>">
-                    <img src="<?= $pro['image'] ?>" alt="">
-                    <div class="item-title"><?= $pro['ten_sp'] ?></div>
-                    <div class="item-price"><?= $pro['sale'] ?></div>
-                    <div class="sale">
-                        <del><?= number_format($pro['price'], 0, ',', '.'); ?> VND</del>
-                        <p style="color:red; font-weight:bold;">-30%</p>
-                    </div>
-                </a>
-            </div>
+        <?php
+        $check = $_GET['cate_id'] ?? "";
+        foreach ($product as $pro):
+            if (!empty($check) && $pro['cate_id'] == $check): ?>
+                <div class="item">
+                    <a href="index.php?ctl=detail&cate_id=<?= $pro['cate_id'] ?>&pro_id=<?= $pro['pro_id'] ?>">
+                        <img src="<?= $pro['image'] ?>" alt="">
+                        <div class="item-title"><?= $pro['ten_sp'] ?></div>
+                        <div class="item-price"><?= $pro['sale'] ?></div>
+                        <div class="sale">
+                            <del><?= number_format($pro['price'], 0, ',', '.'); ?> VND</del>
+                            <p style="color:red; font-weight:bold;">-30%</p>
+                        </div>
+                    </a>
+                </div>
         <?php endif;
-    endforeach ?>
-</div>
+        endforeach ?>
+    </div>
 
 </div>
 <?php include_once "views/client/footer.php" ?>

@@ -412,7 +412,7 @@ a:hover {
   border-radius: 10px;
 }
 
-#content .sidebar .avt{
+#content .sidebar .avt {
   text-align: center;
   font-size: 17px;
   font-weight: bold;
@@ -447,10 +447,12 @@ a:hover {
   border-radius: 3px;
   padding: 2px;
 }
-#content .sidebar a{
+
+#content .sidebar a {
   text-decoration: none;
   color: #252525;
 }
+
 #content .main-myacc {
   width: 70%;
   background-color: white;
@@ -488,13 +490,14 @@ a:hover {
   padding: 8px;
   background-color: #edf1f5;
 }
+
 #content .edit-acc button {
   width: 100%;
   border: none;
   border-radius: 5px;
   border: 1px solid rgb(199, 199, 199);
   padding: 8px;
-  color:white;
+  color: white;
   font-weight: bolder;
   background-color: #da291c;
 }
@@ -892,18 +895,22 @@ del {
   padding: 5px;
   background-color: white;
 }
+
 .sidebar-cate ol,
 .sidebar-cate ul {
   padding-left: 1rem;
   background-color: white;
 }
-#category .sidebar-cate button{
+
+#category .sidebar-cate button {
   background-color: white;
 }
-#category .sidebar-cate .accordion-body{
+
+#category .sidebar-cate .accordion-body {
   padding: 0;
   margin: 0;
 }
+
 .accordion-body ul li a {
   text-decoration: none;
   color: #252525;
@@ -924,6 +931,7 @@ del {
 #category .sidebar-cate li {
   background-color: white;
 }
+
 #category .sidebar-cate li {
   border-bottom: 1px solid rgb(233, 223, 223);
   background-color: white;
@@ -931,10 +939,12 @@ del {
   font-size: 16px;
   margin: 0;
 }
-#category .sidebar-cate .accordion-item{
+
+#category .sidebar-cate .accordion-item {
   padding: 0;
   margin: 0;
 }
+
 #accordionFlushExample,
 .accordion-item,
 .accordion-header,
@@ -965,20 +975,23 @@ del {
   font-size: 16px;
   text-decoration: none;
 }
-#category .item a img{
+
+#category .item a img {
   margin-bottom: 10px;
 }
 
 #category .item .sale {
   display: flex;
 }
-#category .sale p{
+
+#category .sale p {
   margin-left: 5px;
 }
 
 #category .item-title:hover {
   color: red;
 }
+
 #category .sale p:hover {
   color: red;
 }
@@ -1092,7 +1105,7 @@ del {
 
 /* footer giohang */
 #footer-summary {
-  
+
   left: 0;
   width: 100%;
   background-color: white;
@@ -1101,7 +1114,7 @@ del {
   padding: 10px 20px;
   text-align: center;
   z-index: 1000;
-  
+
 }
 
 #footer-summary .discount-code {
@@ -1142,11 +1155,14 @@ del {
 .checkout-button:hover {
   background-color: #d11f17;
 }
+
 /* Thông báo giỏ hàng */
 .notification {
-  display: none; /* Ẩn mặc định */
+  display: none;
+  /* Ẩn mặc định */
   position: absolute;
-  top: 50px; /* Điều chỉnh vị trí dưới giỏ hàng */
+  top: 50px;
+  /* Điều chỉnh vị trí dưới giỏ hàng */
   right: 0;
   width: 300px;
   background-color: #fff;
@@ -1189,6 +1205,7 @@ del {
   background-color: #f0f0f0;
 
 }
+
 .size-option {
   padding: 5px 10px;
   margin-right: 10px;
@@ -1202,6 +1219,3 @@ del {
   color: white;
   border-color: #4CAF50;
 }
-
-
-

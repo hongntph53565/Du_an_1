@@ -26,12 +26,11 @@ class Product
             'quantity'   => $data['quantity'] ?? 0,
             'sale'       => $data['sale'] ?? 0,
             'image'      => $data['image'] ?? null,
-            
+
             'description'   => $data['description'] ?? null,
         ];
         // var_dump($params);
         $stmt->execute($params);
-
     }
     public function update($data, $pro_id)
     {
@@ -62,12 +61,22 @@ class Product
         $stmt->execute(['cate_id' => $cate_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function findProductById($pro_id) {
+    public function findProductById($pro_id)
+    {
         $sql = "SELECT * FROM product WHERE pro_id = :pro_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':pro_id' => $pro_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC); // Nếu sản phẩm tồn tại, trả về thông tin sản phẩm
     }
-  
-   
+    public function productInCategory($parent_id)
+    {
+        $sql = "SELECT p.*, c.parent_id 
+            FROM product p 
+            JOIN category c ON p.cate_id = c.cate_id 
+            WHERE c.parent_id = :parent_id 
+            LIMIT 4";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['parent_id' => $parent_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

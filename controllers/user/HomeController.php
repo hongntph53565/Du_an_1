@@ -8,7 +8,6 @@ class HomeController
 
     // Lấy danh mục cha
     $getParentCategory = (new Category)->getParentCategory();
-
     // Lấy các danh mục con của danh mục hiện tại
     $getChildrenByParent = (new Category)->getChildrenByParent($cate_id);
 
@@ -136,17 +135,71 @@ public function success() {
     }
     
 }
+public function Bill() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_order'])) {
+        $orderId = $_POST['cancel_order'];
 
-public function OrderDetails($order_id) {
-    // Lấy chi tiết đơn hàng
-    $orderDetails = $this->orderModel->getOrderDetails($order_id);
+        // Cập nhật trạng thái đơn hàng thành "Đã hủy"
+        (new Order)->updateOrderStatus($orderId, 'Đã hủy');
 
-    // Lấy danh sách các sản phẩm trong đơn hàng
-    $orderItems = $this->orderModel->getOrderItemsByOrderId($order_id);
+        // Xóa order_id khỏi session
+        unset($_SESSION['order_id']);
+
+        // Thông báo cho người dùng và chuyển hướng về trang index
+        echo "<script>alert('Đơn hàng đã được hủy.'); window.location.href = 'index.php';</script>";
+        exit();
+    }
+
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    if (!isset($_SESSION['user'])) {
+        header("Location: index.php?ctl=login");
+        exit();
+    }
+
+    $user = $_SESSION['user'];
+    $acc_id = $user['acc_id'];
+
+    // Lấy order_id đã lưu trong session từ hàm success
+    $orderId = $_SESSION['order_id'];
+    
+    // Kiểm tra nếu đơn hàng có tồn tại
+    if (!$orderId) {
+        echo "Không tìm thấy thông tin đơn hàng!";
+        exit();
+    }
+
+    // Lấy thông tin chi tiết đơn hàng
+    $orderDetails = (new Order)->getOrderDetails($orderId);
+  
+    // Kiểm tra nếu không có thông tin đơn hàng
+    if (!$orderDetails) {
+        echo "Không tìm thấy thông tin đơn hàng!";
+        exit();
+    }
+
+    // Kiểm tra trạng thái đơn hàng, nếu đã hủy thì chuyển hướng về trang chính
+    if ($orderDetails['status'] == 'Đã hủy') {
+        header("Location: index.php");
+        exit();
+    }
+
+    // Lấy danh mục sản phẩm cha
+    $categories = (new Category)->getParentCategory();
+    // Tính tổng giá trị đơn hàng (nếu cần thiết)
+    $total = (new Cart)->getCartTotal($acc_id);
 
     // Truyền dữ liệu vào view để hiển thị
-    return view('client/success', compact('orderDetails', 'orderItems'));
+    return view('client/donhang', compact('categories', 'orderDetails', 'total', 'user'));
 }
+
+
+
+
+
+
+
+
+
 
 
 

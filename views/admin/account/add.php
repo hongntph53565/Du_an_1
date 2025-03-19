@@ -6,53 +6,49 @@
   <div class="content form_content ">
     <form action="" method="post" enctype="multipart/form-data">
       <div style="color: red;">
-        <?php $message; ?>
+        <?php $message ?? ''; ?>
       </div>
       <div class="ngang">
         <div class="danhang mr5">
           <div class="content mb">
 
             <label> Tên đăng nhập </label> <br>
-            <input type="text" name="username" placeholder="username" required>
+            <input type="text" name="username" placeholder="username" >
+            <span style="color: red;"><?= $errors['username'] ?? ''; ?></span>
           </div>
           <div class="content mb">
             <label>Mật khẩu</label> <br>
-            <input type="password" name="password" placeholder="password" required>
+            <input type="password" name="password" placeholder="password">
+            <span style="color: red;"><?= $errors['password'] ?? ''; ?></span>
           </div>
           <div class="content mb">
             <label>Họ và tên</label> <br>
-            <input type="text" name="fullname" placeholder="Họ và tên" required>
-          </div>
-          <div class="content mb">
-            <label>Ngày tạo</label> <br>
-            <input type="date" name="cre_date" required>
-          </div>
-          <div class="content mb">
-            <label>Hình ảnh</label> <br>
-            <input type="file" name="image" required>
+            <input type="text" name="fullname" placeholder="Họ và tên">
+            <span style="color: red;"><?= $errors['fullname'] ?? ''; ?></span>
           </div>
         </div>
         <div class="danhang ">
 
           <div class="content mb">
             <label> Email</label> <br>
-            <input type="text" name="email" placeholder="email" required>
+            <input type="text" name="email" placeholder="email">
+            <span style="color: red;"><?= $errors['email'] ?? ''; ?></span>
           </div>
           <div class="content mb">
             <label>Số điện thoại</label> <br>
-            <input type="text" name="phone" placeholder="phone" required>
+            <input type="text" name="phone" placeholder="phone">
+            <span style="color: red;"><?= $errors['phone'] ?? ''; ?></span>
           </div>
           <div class="content mb">
             <label>Địa chỉ</label> <br>
-            <input type="text" name="address" placeholder="address" required>
+            <input type="text" name="address" placeholder="address">
+            <span style="color: red;"><?= $errors['address'] ?? ''; ?></span>
           </div>
-          <div class="content mb">
-            <label>Sinh nhật</label> <br>
-            <input type="date" name="birthday" placeholder="birthday" required>
-          </div>
+
           <div class="content mb">
             <label>Vai trò</label> <br>
-            <input type="number" name="role" required>
+            <input type="number" name="role" min="0" max="1" placeholder="0">
+            <span style="color: red;"><?= $errors['role'] ?? ''; ?></span>
           </div>
         </div>
       </div>

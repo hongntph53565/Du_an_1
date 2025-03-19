@@ -67,9 +67,4 @@ class ProductController
             'message' => $message ?? ''
         ]);
     }
- 
-
-
-    
 }
-
